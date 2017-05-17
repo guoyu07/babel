@@ -98,7 +98,7 @@ public class HttpClient {
     String url4="http://www.baidu.com";
 
     HttpClient client = HttpClient.getInstance();
-    client.getUrl(url4);
+    client.getUrl(url3);
 
 //
 //    Map<String,String > params = new HashMap<String, String>();
