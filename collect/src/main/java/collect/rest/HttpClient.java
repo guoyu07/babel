@@ -36,9 +36,10 @@ public class HttpClient {
       }
 
       public void onResponse(Call call, Response response) throws IOException {
-        System.out.println(response.body().string());
+        System.out.println("子线程"+response.body().string());
       }
     });
+    System.out.println("主线程");
   }
 
   public void postJson(String url, Map<String, String> paramsMap) {
