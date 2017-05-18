@@ -6,7 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/babel.iml" filepath="$PROJECT_DIR$/.idea/babel.iml" />
       <module fileurl="file://$PROJECT_DIR$/collect/collect.iml" filepath="$PROJECT_DIR$/collect/collect.iml" />
       <module fileurl="file://$PROJECT_DIR$/platform/platform.iml" filepath="$PROJECT_DIR$/platform/platform.iml" />
-      <module fileurl="file://$PROJECT_DIR$/web/web.iml" filepath="$PROJECT_DIR$/web/web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web/web1.iml" filepath="$PROJECT_DIR$/web/web1.iml" />
     </modules>
   </component>
 </project>

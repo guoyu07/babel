@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+    <!-- start: HEADER -->
+    <div th:fragment="header" class="navbar navbar-inverse navbar-fixed-top">
+        <!-- start: TOP NAVIGATION CONTAINER -->
+        <div class="container">
+            <div class="navbar-header">
+                <!-- start: RESPONSIVE MENU TOGGLER -->
+                <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                    <span class="clip-list-2"></span>
+                </button>
+                <!-- end: RESPONSIVE MENU TOGGLER -->
+                <!-- start: LOGO -->
+                <a class="navbar-brand" href="www.xiamenair.com">
+                    <i><img src="/resources/images/xiamenair-logo.png" style="width: 320px;height: 32px"/></i>
+                </a>
+                <!-- end: LOGO -->
+            </div>
+            <div class="navbar-tools">
+                <!-- start: TOP NAVIGATION MENU -->
+                <ul class="nav navbar-right">
+                    <!-- start: MESSAGE DROPDOWN -->
+
+                    <!-- end: NOTIFICATION DROPDOWN -->
+                    <!-- start: USER DROPDOWN -->
+                    <li class="dropdown current-user">
+                        <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" data-close-others="true" href="#">
+                            <img src="/resources/images/SystemManager.png" class="circle-img" alt="" style="width: 30px;height: 30px"/>
+                            <span class="username" th:text="${T(mobile.common.util.CurUserHelp).getCurUserName()}"></span>
+                            <i class="clip-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="divider"></li>
+                            <!--<li>-->
+                                <!--<a href="/SportsHall/LockScreen">-->
+                                    <!--<i class="clip-locked"></i>-->
+                                    <!--&nbsp;锁定屏幕-->
+                                <!--</a>-->
+                            <!--</li>-->
+                            <li>
+                                <a href="/Authmode/logout">
+                                    <i class="clip-exit"></i>
+                                    &nbsp;退出
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- end: USER DROPDOWN -->
+                </ul>
+                <!-- end: TOP NAVIGATION MENU -->
+            </div>
+        </div>
+        <!-- end: TOP NAVIGATION CONTAINER -->
+    </div>
+    <!-- end: HEADER -->
+</body>
+</html>
