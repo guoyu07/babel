@@ -56,7 +56,7 @@ public class BookController {
     if(studentId == null || studentId.equals("")){
       return new Result<AppointExecution>(false,"学号不能为空");
     }
-    AppointExecution execution = null;
+    AppointExecution execution;
     try {
       execution = bookService.appoint(bookId,studentId);
     } catch (NoNumberException e1) {
