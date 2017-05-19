@@ -109,6 +109,16 @@
       <artifactId>spring-webmvc</artifactId>
       <version>4.1.7.RELEASE</version>
     </dependency>
+    <dependency>
+      <groupId>org.thymeleaf</groupId>
+      <artifactId>thymeleaf</artifactId>
+      <version>2.1.4.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>org.thymeleaf</groupId>
+      <artifactId>thymeleaf-spring4</artifactId>
+      <version>2.1.4.RELEASE</version>
+    </dependency>
     <!-- 4)Spring test -->
     <dependency>
       <groupId>org.springframework</groupId>
