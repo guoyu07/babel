@@ -1,4 +1,4 @@
-package collect.rest;
+package com.babel.collect.rest;
 import okhttp3.*;
 
 import java.io.IOException;
