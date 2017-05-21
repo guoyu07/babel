@@ -1,16 +1,32 @@
 <!DOCTYPE html>
-<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <title>数据分析系统</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!-- Bootstrap -->
+    <link href="/resources/plugins/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- Font Awesome -->
+    <link href="/resources/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+    <!-- Custom Theme Style -->
+    <link href="/resources/css/custom.min.css" rel="stylesheet"/>
+
 </head>
 <body>
-    <p th:replace="base/_header :: header"></p>
-    <section layout:fragment="content"></section>
-    <p th:replace="base/_footer :: footer"></p>
+    <div th:include="base/_header :: header"></div>
+    <div id="content" layout:fragment="content">
+
+        hello
+    </div>
+
+    <!--jQuery-->
+    <script src="/resources/plugins/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/resources/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="/resources/js/custom.min.js"></script>
+
 </body>
 </html>

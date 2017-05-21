@@ -18,6 +18,23 @@ public class HomeController {
     model.addAttribute("user",user);
     return "base/_header";
   }
+  //入口
+  @RequestMapping(value = "/aa")
+  public String aa(Model model) {
+    model.addAttribute("user",user);
+    return "book/aa";
+  }
+  @RequestMapping(value = "/layout")
+  public String layout(Model model) {
+    model.addAttribute("user",user);
+    return "base/_layout";
+  }
+  //入口
+  @RequestMapping(value = "/bb")
+  public String bb(Model model) {
+    model.addAttribute("user",user);
+    return "book/bb";
+  }
 
 //提交表单后进行数据读取，并将数据传出
   @RequestMapping(value = "/bb",method = RequestMethod.POST)

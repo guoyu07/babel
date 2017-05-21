@@ -1,17 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml" layout:decorator="base/_layout">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="base/_layout">
 
 <head>
     <title>Home</title>
 </head>
-<body>
-<form th:action="@{/bb}" th:object="${user}" th:method="post">
-
-    <input type="text" th:field="*{name}"/>
-    <input type="text" th:field="*{msg}"/>
-
-    <input type="submit"/>
-</form>
-
-</body>
+    <div layout:fragment="content" th:remove="tag" >
+        <p>This is a paragraph from the content page</p>
+    </div>
 </html>
