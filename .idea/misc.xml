@@ -27,5 +27,8 @@
     <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
+  <component name="ProjectResources">
+    <resource url="http://www.ultraq.net.nz/thymeleaf/layout" location="/" />
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_3" default="false" assert-keyword="false" jdk-15="false" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
 </project>

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="common/_layout">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="base/layout">
 
 <head>
     <meta charset="utf-8"/>
     <title>Home</title>
 </head>
 <body>
+
 <div>
     <sapn th:text="${user.name}">vinphy,</sapn>
     <sapn th:text="${message}">welcome!</sapn>

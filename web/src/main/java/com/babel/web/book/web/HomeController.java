@@ -16,7 +16,7 @@ public class HomeController {
   @RequestMapping(value = "/home")
   public String home(Model model) {
     model.addAttribute("user",user);
-    return "book/aa";
+    return "base/_header";
   }
 
 //提交表单后进行数据读取，并将数据传出
