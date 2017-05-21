@@ -27,7 +27,7 @@ public class HomeController {
   @RequestMapping(value = "/layout")
   public String layout(Model model) {
     model.addAttribute("user",user);
-    return "base/_layout";
+    return "base/layout";
   }
   //入口
   @RequestMapping(value = "/bb")

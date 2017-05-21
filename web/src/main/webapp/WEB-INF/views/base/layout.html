@@ -14,11 +14,15 @@
     <link href="/resources/css/custom.min.css" rel="stylesheet"/>
 
 </head>
-<body>
-    <div th:include="base/_header :: header"></div>
-    <div id="content" layout:fragment="content">
-
-        hello
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div th:replace="base/left_menu :: left_menu"></div>
+            <div th:replace="base/top_menu :: top_menu"></div>
+            <div id="content" layout:fragment="content">
+                hello
+            </div>
+        </div>
     </div>
 
     <!--jQuery-->
