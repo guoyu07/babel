@@ -9,7 +9,7 @@
         VALUES (#{bookId}, #{studentId})
     </insert>
 
-    <select id="queryByKeyWithBook" resultType="com.babel.web.book.entity.Appointment">
+    <select id="queryByKeyWithBook" resultType="com.babel.web.book.po.Appointment">
         <!--如何告诉MyBatis把结果映射到Appointment同时映射book属性-->
         SELECT
             a.book_id,

@@ -1,4 +1,4 @@
-package com.babel.web.book.entity;
+package com.babel.web.book.po;
 
 import java.util.Date;
 

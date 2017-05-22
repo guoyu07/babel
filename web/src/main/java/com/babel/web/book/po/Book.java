@@ -1,4 +1,4 @@
-package com.babel.web.book.entity;
+package com.babel.web.book.po;
 
 /**
  * Created by allen on 2017/5/18.

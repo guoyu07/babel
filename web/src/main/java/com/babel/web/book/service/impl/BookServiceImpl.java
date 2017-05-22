@@ -2,9 +2,9 @@ package com.babel.web.book.service.impl;
 
 import com.babel.web.book.dao.AppointmentDao;
 import com.babel.web.book.dao.BookDao;
-import com.babel.web.book.dto.AppointExecution;
-import com.babel.web.book.entity.Appointment;
-import com.babel.web.book.entity.Book;
+import com.babel.web.book.vo.AppointExecution;
+import com.babel.web.book.po.Appointment;
+import com.babel.web.book.po.Book;
 import com.babel.web.book.enums.AppointStateEnum;
 import com.babel.web.book.exception.AppointException;
 import com.babel.web.book.exception.NoNumberException;

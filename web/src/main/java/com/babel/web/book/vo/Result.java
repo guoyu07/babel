@@ -1,4 +1,4 @@
-package com.babel.web.book.dto;
+package com.babel.web.book.vo;
 
 /**
  * Created by allen on 2017/5/19.

@@ -1,4 +1,4 @@
-import com.babel.web.book.dto.AppointExecution;
+import com.babel.web.book.vo.AppointExecution;
 import com.babel.web.book.service.BookService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;

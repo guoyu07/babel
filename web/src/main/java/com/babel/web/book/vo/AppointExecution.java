@@ -1,6 +1,6 @@
-package com.babel.web.book.dto;
+package com.babel.web.book.vo;
 
-import com.babel.web.book.entity.Appointment;
+import com.babel.web.book.po.Appointment;
 import com.babel.web.book.enums.AppointStateEnum;
 
 /**

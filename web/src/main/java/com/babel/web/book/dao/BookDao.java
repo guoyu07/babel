@@ -1,6 +1,6 @@
 package com.babel.web.book.dao;
 
-import com.babel.web.book.entity.Book;
+import com.babel.web.book.po.Book;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

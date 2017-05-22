@@ -1,7 +1,7 @@
 package com.babel.web.book.service;
 
-import com.babel.web.book.dto.AppointExecution;
-import com.babel.web.book.entity.Book;
+import com.babel.web.book.vo.AppointExecution;
+import com.babel.web.book.po.Book;
 
 import java.util.List;
 

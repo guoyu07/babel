@@ -1,6 +1,6 @@
 package com.babel.web.book.web;
 
-import com.babel.web.book.dto.User;
+import com.babel.web.book.vo.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;

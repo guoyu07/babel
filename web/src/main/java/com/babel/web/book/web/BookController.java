@@ -1,8 +1,8 @@
 package com.babel.web.book.web;
 
-import com.babel.web.book.dto.AppointExecution;
-import com.babel.web.book.dto.Result;
-import com.babel.web.book.entity.Book;
+import com.babel.web.book.vo.AppointExecution;
+import com.babel.web.book.vo.Result;
+import com.babel.web.book.po.Book;
 import com.babel.web.book.enums.AppointStateEnum;
 import com.babel.web.book.exception.NoNumberException;
 import com.babel.web.book.exception.RepeatAppointException;

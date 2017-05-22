@@ -1,5 +1,5 @@
 import com.babel.web.book.dao.BookDao;
-import com.babel.web.book.entity.Book;
+import com.babel.web.book.po.Book;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 

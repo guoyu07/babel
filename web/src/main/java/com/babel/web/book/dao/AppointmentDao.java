@@ -1,6 +1,6 @@
 package com.babel.web.book.dao;
 
-import com.babel.web.book.entity.Appointment;
+import com.babel.web.book.po.Appointment;
 import org.apache.ibatis.annotations.Param;
 
 /**

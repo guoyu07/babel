@@ -1,5 +1,5 @@
 import com.babel.web.book.dao.AppointmentDao;
-import com.babel.web.book.entity.Appointment;
+import com.babel.web.book.po.Appointment;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 

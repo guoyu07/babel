@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.babel.web.system.dao.MenuDao">
+    <!--目的：为dao接口方法提供sql语句配置-->
+    <insert id="addMenu"  parameterType="com.babel.web.system.po.MenuPo">
+        INSERT INTO menu (guid,
+                          menu_name,
+                          action_guid,
+                          parent_guid,
+                          menu_index,
+                          icon_class)
+              VALUES (#{guid},
+                    #{menuName},
+                    #{actionGuid},
+                    #{parentGuid},
+                    #{menuIndex},
+                    #{iconClass})
+    </insert>
+
+    <delete id="deleteMenu" parameterType="String">
+     DELETE FROM menu WHERE guid = #{guid}
+    </delete>
+
+    <update id="reduceNumber">
+        UPDATE menu
+        SET menu_name = #{menu_name},
+            action_guid = #{action_guid},
+            parent_guid = #{parent_guid},
+            menu_index = #{menu_index},
+            icon_class = #{icon_class}
+        WHERE
+            guid = #{guid}
+        AND number > 0
+    </update>
+
+    <select id="queryAllMenu" resultType="com.babel.web.system.po.MenuPo">
+        SELECT
+            guid,
+            menu_name,
+            action_guid,
+            parent_guid,
+            menu_index,
+            icon_class
+        FROM
+            menu
+    </select>
+
+</mapper>

@@ -25,7 +25,7 @@
 
   Tab.prototype.show = function () {
     var $this    = this.element
-    var $ul      = $this.closest('ul:not(.dropdown-menu)')
+    var $ul      = $this.closest('ul:not(.dropdown-system)')
     var selector = $this.data('target')
 
     if (!selector) {
@@ -72,7 +72,7 @@
     function next() {
       $active
         .removeClass('active')
-        .find('> .dropdown-menu > .active')
+        .find('> .dropdown-system > .active')
           .removeClass('active')
         .end()
         .find('[data-toggle="tab"]')
@@ -90,7 +90,7 @@
         element.removeClass('fade')
       }
 
-      if (element.parent('.dropdown-menu').length) {
+      if (element.parent('.dropdown-system').length) {
         element
           .closest('li.dropdown')
             .addClass('active')
