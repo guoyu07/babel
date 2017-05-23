@@ -35,7 +35,7 @@
         AND number > 0
     </update>
 
-    <select id="queryAllMenu" resultType="com.babel.web.system.po.MenuPo">
+    <select id="queryAllMenus" resultType="com.babel.web.system.po.MenuPo">
         SELECT
             guid,
             menu_name,

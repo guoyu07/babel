@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - babel@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="babel">
+      <visible>1</visible>
+    </schema>
+    <schema id="2" name="information_schema"/>
+    <schema id="3" name="mysql"/>
+    <schema id="4" name="performance_schema"/>
+    <schema id="5" name="sys"/>
+    <table id="6" parent="1" name="appointment">
+      <comment>预约图书表</comment>
+    </table>
+    <table id="7" parent="1" name="book">
+      <comment>图书表</comment>
+    </table>
+    <table id="8" parent="1" name="menu">
+      <comment>菜单表</comment>
+    </table>
+    <column id="9" parent="6" name="book_id">
+      <comment>图书ID</comment>
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+    </column>
+    <column id="10" parent="6" name="student_id">
+      <comment>学号</comment>
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+    </column>
+    <column id="11" parent="6" name="appoint_time">
+      <comment>预约时间</comment>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+      <default-expression>CURRENT_TIMESTAMP</default-expression>
+    </column>
+    <index id="12" parent="6" name="idx_appoint_time">
+      <columns>appoint_time</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="13" parent="6" name="PRIMARY">
+      <columns>book_id
+student_id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="14" parent="7" name="book_id">
+      <comment>图书ID</comment>
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="15" parent="7" name="name">
+      <comment>图书名称</comment>
+      <mandatory>1</mandatory>
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="16" parent="7" name="number">
+      <comment>馆藏数量</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <key id="17" parent="7" name="PRIMARY">
+      <columns>book_id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="18" parent="8" name="guid">
+      <mandatory>1</mandatory>
+      <data-type>varchar(32)|0</data-type>
+    </column>
+    <column id="19" parent="8" name="menu_name">
+      <mandatory>1</mandatory>
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="20" parent="8" name="action_guid">
+      <data-type>varchar(32)|0</data-type>
+    </column>
+    <column id="21" parent="8" name="parent_guid">
+      <data-type>varchar(32)|0</data-type>
+    </column>
+    <column id="22" parent="8" name="menu_index">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="23" parent="8" name="icon_class">
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <index id="24" parent="8" name="Menu_guid_uindex">
+      <columns>guid</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="25" parent="8" name="PRIMARY">
+      <columns>guid</columns>
+      <primary>1</primary>
+    </key>
+    <key id="26" parent="8" name="Menu_guid_uindex">
+      <columns>guid</columns>
+      <underlying-index>Menu_guid_uindex</underlying-index>
+    </key>
+  </database-model>
+</dataSource>

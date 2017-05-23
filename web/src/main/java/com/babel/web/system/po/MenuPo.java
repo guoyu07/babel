@@ -8,7 +8,7 @@ public class MenuPo {
   private String menuName;
   private String actionGuid;
   private String parentGuid;
-  private String menuIndex;
+  private int menuIndex;
   private String iconClass;
 
   public String getGuid() {
@@ -35,11 +35,11 @@ public class MenuPo {
     this.actionGuid = actionGuid;
   }
 
-  public String getMenuIndex() {
+  public int getMenuIndex() {
     return menuIndex;
   }
 
-  public void setMenuIndex(String menuIndex) {
+  public void setMenuIndex(int menuIndex) {
     this.menuIndex = menuIndex;
   }
 
