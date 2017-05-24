@@ -22,7 +22,7 @@ public class MenuDaoTest extends BaseTest {
     menuPo.setActionGuid(GuidGenenator.newGuid());
     menuPo.setMenuIndex(1);
     menuPo.setIconClass("menu");
-    menuPo.setMenuName("aaa");
+    menuPo.setMenuName("股票分析");
 
     menuDao.addMenu(menuPo);
   }

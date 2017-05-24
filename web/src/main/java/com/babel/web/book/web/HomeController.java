@@ -13,10 +13,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
   User user = new User();
   //入口
+  @RequestMapping(value = "/")
+  public String mainView(Model model) {
+    model.addAttribute("user",user);
+    return "base/newMenu";
+  }
+  //入口
   @RequestMapping(value = "/home")
   public String home(Model model) {
     model.addAttribute("user",user);
-    return "base/_header";
+    return "base/header";
   }
   //入口
   @RequestMapping(value = "/aa")
