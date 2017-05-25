@@ -16,26 +16,15 @@ public class HomeController {
   @RequestMapping(value = "/")
   public String mainView(Model model) {
     model.addAttribute("user",user);
-    return "base/newMenu";
+    return "base/layout";
   }
-  //入口
-  @RequestMapping(value = "/home")
-  public String home(Model model) {
-    model.addAttribute("user",user);
-    return "base/header";
-  }
-  //入口
+
   @RequestMapping(value = "/aa")
   public String aa(Model model) {
     model.addAttribute("user",user);
     return "book/aa";
   }
-  @RequestMapping(value = "/layout")
-  public String layout(Model model) {
-    model.addAttribute("user",user);
-    return "base/layout";
-  }
-  //入口
+
   @RequestMapping(value = "/bb")
   public String bb(Model model) {
     model.addAttribute("user",user);
