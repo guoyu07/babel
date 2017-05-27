@@ -7,7 +7,7 @@ public class MenuVo {
 
   private String parentName;
   private String menuName;
-  private String menuIndex;
+  private int menuIndex;
   private String iconClass;
 
   public String getParentName() {
@@ -26,11 +26,11 @@ public class MenuVo {
     this.menuName = menuName;
   }
 
-  public String getMenuIndex() {
+  public int getMenuIndex() {
     return menuIndex;
   }
 
-  public void setMenuIndex(String menuIndex) {
+  public void setMenuIndex(int menuIndex) {
     this.menuIndex = menuIndex;
   }
 

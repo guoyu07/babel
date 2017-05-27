@@ -27,11 +27,6 @@ public class MenuController {
 
   @RequestMapping(value="/addMenu", method = POST)
   public String addMenu(MenuVo menuVo){
-    System.out.println(menuVo.getIconClass());
-    System.out.println(menuVo.getParentName());
-    System.out.println(menuVo.getMenuName());
-    System.out.println(menuVo.getMenuIndex());
-
     menuService.addMenu(menuVo);
     return "system/menuManage";
   }
