@@ -34,8 +34,17 @@ public class ResourceServiceImpl implements ResourceService {
   public void updateResources() {
     List<ResourcePo> resourcePos = getAllResource();
     List<ResourcePo> resourcePosFromDb = resourceDao.queryAllResource();
+
+    //先删除数据库中冗余资源
+    for(ResourcePo tmpDbResourcePo : resourcePosFromDb){
+      if(null == findResourcePo(resourcePos,tmpDbResourcePo)){
+        resourceDao.deleteResource(tmpDbResourcePo);
+      }
+    }
+
+    //再添加新的资源
     for (ResourcePo tmpResourcePo : resourcePos) {
-      ResourcePo tmpDbResourcePo = findResourcePoFromDb(resourcePosFromDb, tmpResourcePo);
+      ResourcePo tmpDbResourcePo = findResourcePo(resourcePosFromDb, tmpResourcePo);
       if (null == tmpDbResourcePo) {
         resourceDao.addResource(tmpResourcePo);
       } else if (!tmpDbResourcePo.getDescription().equals(tmpResourcePo.getDescription())) {
@@ -44,9 +53,9 @@ public class ResourceServiceImpl implements ResourceService {
     }
   }
 
-  private ResourcePo findResourcePoFromDb(List<ResourcePo> resourcePosFromDb, ResourcePo tmpResourcePo) {
+  private ResourcePo findResourcePo(List<ResourcePo> resourcePos, ResourcePo tmpResourcePo) {
 
-    for (ResourcePo resourcePo : resourcePosFromDb) {
+    for (ResourcePo resourcePo : resourcePos) {
       if (resourcePo.getResource().equals(tmpResourcePo.getResource())) {
         return resourcePo;
       }

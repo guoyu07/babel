@@ -35,7 +35,7 @@
     </update>
 
     <delete id="deleteResource">
-        DELETE FROM resources WHERE guid = #{guid}
+        DELETE FROM resources WHERE resource = #{resource} and description = #{description}
     </delete>
 
 </mapper>

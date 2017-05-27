@@ -10,6 +10,7 @@ import com.babel.web.book.service.BookService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Description;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +30,7 @@ public class BookController {
   private BookService bookService;
 
   @RequestMapping(value="/list",method = RequestMethod.GET)
+  @Description("图书列表")
   private String list(Model model){
     List<Book> list = bookService.getList();
     model.addAttribute("list",list);
@@ -37,6 +39,7 @@ public class BookController {
   }
 
   @RequestMapping(value = "/{bookId}/detail",method = RequestMethod.GET)
+  @Description("图书详情")
   private String detail(@PathVariable("bookId") Long bookId, Model model){
     if(bookId == null){
       return "redirect:/book/list";
@@ -51,6 +54,7 @@ public class BookController {
 
   //ajax json
   @RequestMapping(value = "{bookId}/appoint", method = RequestMethod.POST, produces = {"application/json; charset=utf-8"})
+  @Description("预约图书")
   @ResponseBody
   private Result<AppointExecution> appoint(@PathVariable("bookId") Long bookId, @RequestParam("studentId") Long studentId){
     if(studentId == null || studentId.equals("")){
