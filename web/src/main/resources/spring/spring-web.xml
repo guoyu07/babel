@@ -46,6 +46,8 @@
         <property name="characterEncoding" value="UTF-8"/>
     </bean>
 
+    <bean class="com.babel.web.common.init.ApplicationStartListener"/>
+
         <!-- 4.扫描web相关的bean -->
     <context:component-scan base-package="com.babel.web.*.web" />
 </beans>

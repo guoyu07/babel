@@ -1,6 +1,6 @@
 package com.babel.web.system.service.impl;
 
-import com.babel.platform.utils.GuidGenenator;
+import com.babel.platform.utils.GuidGenerator;
 import com.babel.web.system.dao.MenuDao;
 import com.babel.web.system.po.MenuPo;
 import com.babel.web.system.service.MenuService;
@@ -21,7 +21,7 @@ public class MenuServiceImpl implements MenuService{
   public void addMenu(MenuVo menuVo) {
 
     MenuPo menuPo = new MenuPo();
-    menuPo.setGuid(GuidGenenator.newGuid());
+    menuPo.setGuid(GuidGenerator.newGuid());
     menuPo.setActionGuid("actionGuid");
     menuPo.setIconClass(menuVo.getIconClass());
     menuPo.setMenuName(menuVo.getMenuName());

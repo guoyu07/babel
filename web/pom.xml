@@ -155,6 +155,14 @@
       <artifactId>commons-collections</artifactId>
       <version>3.2</version>
     </dependency>
+
+    <!--项目间依赖-->
+    <dependency>
+      <groupId>com.babel.platform</groupId>
+      <artifactId>platform</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+
   </dependencies>
   <build>
     <finalName>web</finalName>

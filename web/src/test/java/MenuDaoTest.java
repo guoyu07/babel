@@ -1,4 +1,4 @@
-import com.babel.platform.utils.GuidGenenator;
+import com.babel.platform.utils.GuidGenerator;
 import com.babel.platform.utils.JsonUtil;
 import com.babel.web.system.dao.MenuDao;
 import com.babel.web.system.po.MenuPo;
@@ -18,8 +18,8 @@ public class MenuDaoTest extends BaseTest {
   @Test
   public void testAddMenu(){
     MenuPo menuPo = new MenuPo();
-    menuPo.setGuid(GuidGenenator.newGuid());
-    menuPo.setActionGuid(GuidGenenator.newGuid());
+    menuPo.setGuid(GuidGenerator.newGuid());
+    menuPo.setActionGuid(GuidGenerator.newGuid());
     menuPo.setMenuIndex(1);
     menuPo.setIconClass("menu");
     menuPo.setMenuName("股票分析");
