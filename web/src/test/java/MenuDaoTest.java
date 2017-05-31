@@ -4,12 +4,18 @@ import com.babel.web.system.dao.MenuDao;
 import com.babel.web.system.po.MenuPo;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.web.WebAppConfiguration;
 
 import java.util.List;
 
 /**
  * Created by allen on 2017/5/22.
  */
+@ContextConfiguration({
+    "classpath:/spring/spring-web.xml",
+    "classpath:/spring/spring-dao.xml",
+    "classpath:/spring/spring-service.xml" })
 public class MenuDaoTest extends BaseTest {
 
   @Autowired
