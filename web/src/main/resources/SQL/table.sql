@@ -16,7 +16,7 @@ CREATE TABLE menu
 (
     guid VARCHAR(32) PRIMARY KEY NOT NULL,
     menu_name VARCHAR(100) NOT NULL,
-    action_guid VARCHAR(32),
+    resource_guid VARCHAR(32),
     parent_guid VARCHAR(32),
     menu_index INT(11),
     icon_class VARCHAR(50)
@@ -41,14 +41,14 @@ CREATE TABLE permissions
     guid VARCHAR(32) NOT NULL COMMENT '物理主键',
     permission VARCHAR(50) COMMENT '权限名称',
     description VARCHAR(150) COMMENT '权限描述',
-    avaliable INT(11) COMMENT '权限模块是否有效0:无效 1：有效'
+    available INT(11) COMMENT '权限模块是否有效0:无效 1：有效'
 );
 CREATE TABLE resources
 (
     guid VARCHAR(32) PRIMARY KEY NOT NULL COMMENT '物理主键',
     resource VARCHAR(300) COMMENT '资源名称',
     description VARCHAR(150) COMMENT '资源描述',
-    avaliable INT(11) COMMENT '资源是否有效0：无效 1：有效'
+    available INT(11) COMMENT '资源是否有效0：无效 1：有效'
 );
 CREATE UNIQUE INDEX resources_guid_uindex ON resources (guid);
 CREATE TABLE users_roles
