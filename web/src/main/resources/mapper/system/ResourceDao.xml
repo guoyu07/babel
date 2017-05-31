@@ -5,12 +5,12 @@
 <mapper namespace="com.babel.web.system.dao.ResourceDao">
     <!--目的：为dao接口方法提供sql语句配置-->
 
-    <select id="queryAllResource" resultType="com.babel.web.system.po.ResourcePo">
+    <select id="queryAllResources" resultType="com.babel.web.system.po.ResourcePo">
         SELECT
             guid,
             resource,
             description,
-            avaliable
+            available
         FROM
             resources
     </select>
@@ -19,11 +19,11 @@
         INSERT INTO resources (guid,
         resource,
         description,
-        avaliable)
+        available)
         VALUES (#{guid},
         #{resource},
         #{description},
-        #{avaliable})
+        #{available})
     </insert>
 
 

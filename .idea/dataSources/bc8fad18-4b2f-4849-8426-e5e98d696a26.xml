@@ -161,7 +161,7 @@ student_id</columns>
       <comment>权限描述</comment>
       <data-type>varchar(150)|0</data-type>
     </column>
-    <column id="45" parent="11" name="avaliable">
+    <column id="45" parent="11" name="available">
       <comment>权限模块是否有效0:无效 1：有效</comment>
       <data-type>int(11)|0</data-type>
     </column>
@@ -178,7 +178,7 @@ student_id</columns>
       <comment>资源描述</comment>
       <data-type>varchar(150)|0</data-type>
     </column>
-    <column id="49" parent="12" name="avaliable">
+    <column id="49" parent="12" name="available">
       <comment>资源是否有效0：无效 1：有效</comment>
       <data-type>int(11)|0</data-type>
     </column>

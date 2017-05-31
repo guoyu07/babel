@@ -6,7 +6,7 @@ package com.babel.web.system.po;
 public class MenuPo {
   private String guid;
   private String menuName;
-  private String actionGuid;
+  private String actionGuid;//关联resourceGuid
   private String parentGuid;
   private int menuIndex;
   private String iconClass;

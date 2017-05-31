@@ -13,7 +13,7 @@ public interface ResourceDao {
    * 查找所有资源
    * @return
    */
-  List<ResourcePo> queryAllResource();
+  List<ResourcePo> queryAllResources();
 
   /**
    * 新增资源

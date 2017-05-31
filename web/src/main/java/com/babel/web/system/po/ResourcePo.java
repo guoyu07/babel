@@ -7,7 +7,7 @@ public class ResourcePo {
   private String guid;
   private String resource;
   private String description;
-  private int avaliable;
+  private int available;
 
   public String getGuid() {
     return guid;
@@ -33,11 +33,11 @@ public class ResourcePo {
     this.description = description;
   }
 
-  public int getAvaliable() {
-    return avaliable;
+  public int getAvailable() {
+    return available;
   }
 
-  public void setAvaliable(int avaliable) {
-    this.avaliable = avaliable;
+  public void setAvailable(int available) {
+    this.available = available;
   }
 }

@@ -33,7 +33,7 @@ public class ResourceServiceImpl implements ResourceService {
   @Transactional
   public void updateResources() {
     List<ResourcePo> resourcePos = getAllResource();
-    List<ResourcePo> resourcePosFromDb = resourceDao.queryAllResource();
+    List<ResourcePo> resourcePosFromDb = resourceDao.queryAllResources();
 
     //先删除数据库中冗余资源
     for(ResourcePo tmpDbResourcePo : resourcePosFromDb){
@@ -86,7 +86,7 @@ public class ResourceServiceImpl implements ResourceService {
       ResourcePo resourcePo = new ResourcePo();
       resourcePo.setGuid(GuidGenerator.newGuid());
       resourcePo.setResource(url);
-      resourcePo.setAvaliable(1);
+      resourcePo.setAvailable(1);
       resourcePo.setDescription(description);
       resourcePoList.add(resourcePo);
     }

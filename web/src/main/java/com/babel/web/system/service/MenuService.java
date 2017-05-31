@@ -2,6 +2,8 @@ package com.babel.web.system.service;
 
 import com.babel.web.system.vo.MenuVo;
 
+import java.util.List;
+
 /**
  * Created by allen on 2017/5/22.
  */
@@ -12,4 +14,9 @@ public interface MenuService {
    * @param menuVo
    */
   void addMenu(MenuVo menuVo);
+
+  /**
+   * 查询所有菜单项
+   */
+  List<MenuVo> getAllMenus();
 }

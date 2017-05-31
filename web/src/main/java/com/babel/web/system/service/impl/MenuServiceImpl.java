@@ -8,6 +8,9 @@ import com.babel.web.system.vo.MenuVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by allen on 2017/5/22.
  */
@@ -31,4 +34,20 @@ public class MenuServiceImpl implements MenuService{
     menuDao.addMenu(menuPo);
 
   }
+
+  public List<MenuVo> getAllMenus() {
+    List<MenuVo> menuVos = new ArrayList<MenuVo>();
+    List<MenuPo> menuPos = menuDao.queryAllMenus();
+    for (MenuPo menuPo : menuPos){
+      MenuVo menuVo = new MenuVo();
+      menuVo.setGuid(menuPo.getGuid());
+      menuVo.setIconClass(menuPo.getIconClass());
+      menuVo.setMenuIndex(menuPo.getMenuIndex());
+      menuVo.setMenuName(menuPo.getMenuName());
+      menuVos.add(menuVo);
+    }
+    return menuVos;
+  }
+
+
 }
