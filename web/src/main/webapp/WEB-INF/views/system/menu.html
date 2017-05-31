@@ -98,12 +98,12 @@
             },
             data: {
                 key: {
-                    name: "itemName"
+                    name: "menuName"
                 },
                 simpleData: {
                     enable: true,
                     idKey: "guid",
-                    pIdKey: "fatherGuid",
+                    pIdKey: "parentGuid",
                     rootPId: 0
                 }
             },
@@ -130,7 +130,7 @@
         }
 
         function InitNavigationListSelect(navigationList) {
-            $('#fatherGuid').empty();
+            $('#parentName').empty();
             $('#fatherGuid').append("<option value=''></option>");
             for (var i = 0; i < navigationList.length; ++i) {
                 $('#fatherGuid').append('<option value="' + navigationList[i].guid + '">' + navigationList[i].itemName + '</option>');

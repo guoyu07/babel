@@ -89,7 +89,7 @@ student_id</columns>
       <mandatory>1</mandatory>
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="27" parent="8" name="action_guid">
+    <column id="27" parent="8" name="resource_guid">
       <data-type>varchar(32)|0</data-type>
     </column>
     <column id="28" parent="8" name="parent_guid">

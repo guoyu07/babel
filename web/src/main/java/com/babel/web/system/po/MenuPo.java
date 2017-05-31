@@ -6,7 +6,8 @@ package com.babel.web.system.po;
 public class MenuPo {
   private String guid;
   private String menuName;
-  private String actionGuid;//关联resourceGuid
+  private String resourceGuid;//关联resourceGuid
+  private String resourceName;
   private String parentGuid;
   private int menuIndex;
   private String iconClass;
@@ -25,14 +26,6 @@ public class MenuPo {
 
   public void setMenuName(String menuName) {
     this.menuName = menuName;
-  }
-
-  public String getActionGuid() {
-    return actionGuid;
-  }
-
-  public void setActionGuid(String actionGuid) {
-    this.actionGuid = actionGuid;
   }
 
   public int getMenuIndex() {
@@ -58,4 +51,21 @@ public class MenuPo {
   public void setParentGuid(String parentGuid) {
     this.parentGuid = parentGuid;
   }
+
+  public String getResourceGuid() {
+    return resourceGuid;
+  }
+
+  public void setResourceGuid(String resourceGuid) {
+    this.resourceGuid = resourceGuid;
+  }
+
+  public String getResourceName() {
+    return resourceName;
+  }
+
+  public void setResourceName(String resourceName) {
+    this.resourceName = resourceName;
+  }
+
 }

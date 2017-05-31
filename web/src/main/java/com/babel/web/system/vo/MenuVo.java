@@ -6,8 +6,28 @@ package com.babel.web.system.vo;
 public class MenuVo {
 
   private String guid;
-  private String parentName;
   private String menuName;
+  private String parentGuid;
+  private String parentName;
+  private String resourceGuid;
+  private String resource;
+
+  public String getResourceGuid() {
+    return resourceGuid;
+  }
+
+  public void setResourceGuid(String resourceGuid) {
+    this.resourceGuid = resourceGuid;
+  }
+
+  public String getResource() {
+    return resource;
+  }
+
+  public void setResource(String resource) {
+    this.resource = resource;
+  }
+
   private int menuIndex;
   private String iconClass;
 
@@ -49,5 +69,13 @@ public class MenuVo {
 
   public void setGuid(String guid) {
     this.guid = guid;
+  }
+
+  public String getParentGuid() {
+    return parentGuid;
+  }
+
+  public void setParentGuid(String parentGuid) {
+    this.parentGuid = parentGuid;
   }
 }
