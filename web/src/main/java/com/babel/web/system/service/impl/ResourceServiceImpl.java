@@ -53,6 +53,11 @@ public class ResourceServiceImpl implements ResourceService {
     }
   }
 
+  @Override
+  public List<ResourcePo> getAllResources() {
+    return resourceDao.queryAllResources();
+  }
+
   private ResourcePo findResourcePo(List<ResourcePo> resourcePos, ResourcePo tmpResourcePo) {
 
     for (ResourcePo resourcePo : resourcePos) {

@@ -23,7 +23,6 @@ public class MenuServiceImpl implements MenuService{
 
 
   public void addMenu(MenuVo menuVo) {
-
     MenuPo menuPo = new MenuPo();
     menuPo.setGuid(GuidGenerator.newGuid());
     menuPo.setResourceGuid("actionGuid");
@@ -31,9 +30,7 @@ public class MenuServiceImpl implements MenuService{
     menuPo.setMenuName(menuVo.getMenuName());
     menuPo.setMenuIndex(menuVo.getMenuIndex());
     menuPo.setParentGuid("parentGuid");
-
     menuDao.addMenu(menuPo);
-
   }
 
   public List<MenuVo> getAllMenus() {
@@ -50,6 +47,4 @@ public class MenuServiceImpl implements MenuService{
     }
     return menuVos;
   }
-
-
 }

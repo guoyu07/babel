@@ -8,6 +8,9 @@ public class MenuPo {
   private String menuName;
   private String resourceGuid;//关联resourceGuid
   private String resource;
+  private String parentGuid;
+  private int menuIndex;
+  private String iconClass;
 
   public String getResource() {
     return resource;
@@ -16,10 +19,6 @@ public class MenuPo {
   public void setResource(String resource) {
     this.resource = resource;
   }
-
-  private String parentGuid;
-  private int menuIndex;
-  private String iconClass;
 
   public String getGuid() {
     return guid;
