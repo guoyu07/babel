@@ -226,7 +226,7 @@ function MessengerAjaxPostAndClientDirect(postAction, para, newUrl) {
 function MessengerAjaxGet(action, para, updateFunction) {
     $.get(action, para)
         .success(function (response) {
-            if (response.code == 1) {
+            if (response.success == true) {
                 updateFunction(response.data);
             } else {
                 MessengerError(response.msg);

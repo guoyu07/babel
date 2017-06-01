@@ -47,6 +47,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="resource">资源</label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <select class="form-control" id="resource" name="resource">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label for="menuIndex" class="control-label col-md-3 col-sm-3 col-xs-12">顺序</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input id="menuIndex" name="menuIndex" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
@@ -86,9 +93,9 @@
         $(function () {
             $.fn.zTree.init($("#navigationTree"), setting);
 
-//            MessengerAjaxGet("/menu/getAllMenus", null, function(data){
-//                InitControllerActionListSelect(data);
-//            });
+            MessengerAjaxGet("/resource/getAllResources", null, function(data){
+                InitResourcesSelect(data);
+            });
         });
 
         var setting = {
@@ -137,41 +144,44 @@
             }
         }
 
-        function InitControllerActionListSelect(controllerActionList) {
-            $('#urlGuid').empty();
-            $('#urlGuid').append("<option value=''></option>");
-            for (var j = 0; j < controllerActionList.length; ++j) {
-                $('#urlGuid').append('<option value="' + controllerActionList[j].guid + '">' +
-                        controllerActionList[j].url +
-                        '(' + controllerActionList[j].description + ')'
+        function InitResourcesSelect(resources) {
+
+            $('#resource').empty();
+            $('#resource').append("<option value=''></option>");
+            for (var j = 0; j < resources.length; ++j) {
+                $('#resource').append('<option value="' + resources[j].guid + '">' +
+                        '(' + resources[j].description + ')'+
+                        resources[j].resource
                         + '</option>');
             }
         }
 
 
         $("#button_addMenu").click(function(){
-            var parentName = $("#parentName").val();
-            var menuName = $("#menuName").val();
-            var menuIndex = $("#menuIndex").val();
-            var iconClass = $("#iconClass").val();
 
-            var menuVo = {parentName:parentName,
-                menuName:menuName,
-                menuIndex:menuIndex,
-                iconClass:iconClass
-            };//拼装成json格式
-
-            $.ajax({
-                type:"POST",
-                url:"/addMenu",
-                data:menuVo,
-                success:function(){
-                    alert("成功");
-                },
-                error:function(e) {
-                    alert("出错："+e);
-                }
-            });
+            $("#itemmodal").modal();
+//            var parentName = $("#parentName").val();
+//            var menuName = $("#menuName").val();
+//            var menuIndex = $("#menuIndex").val();
+//            var iconClass = $("#iconClass").val();
+//
+//            var menuVo = {parentName:parentName,
+//                menuName:menuName,
+//                menuIndex:menuIndex,
+//                iconClass:iconClass
+//            };//拼装成json格式
+//
+//            $.ajax({
+//                type:"POST",
+//                url:"/addMenu",
+//                data:menuVo,
+//                success:function(){
+//                    alert("成功");
+//                },
+//                error:function(e) {
+//                    alert("出错："+e);
+//                }
+//            });
         });
     </script>
 

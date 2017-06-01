@@ -1,5 +1,7 @@
 package com.babel.web.system.web;
 
+import com.babel.platform.utils.ResponseResult;
+import com.babel.platform.utils.RestResultGenerator;
 import com.babel.web.system.po.ResourcePo;
 import com.babel.web.system.service.ResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +27,9 @@ public class ResourceController {
   @RequestMapping(value = "/getAllResources", method = GET)
   @Description("获取所有资源")
   @ResponseBody
-  public List<ResourcePo> getAllMenus(){
-    return resourceService.getAllResources();
+  public ResponseResult getAllResources(){
+    List<ResourcePo> resourcePos = resourceService.getAllResources();
+    return RestResultGenerator.genResult(resourcePos,null);
   }
 
 }
