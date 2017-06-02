@@ -48,7 +48,8 @@ CREATE TABLE resources
     guid VARCHAR(32) PRIMARY KEY NOT NULL COMMENT '物理主键',
     resource VARCHAR(300) COMMENT '资源名称',
     description VARCHAR(150) COMMENT '资源描述',
-    available INT(11) COMMENT '资源是否有效0：无效 1：有效'
+    available INT(11) COMMENT '资源是否有效0：无效 1：有效',
+    resource_type INT(11)
 );
 CREATE UNIQUE INDEX resources_guid_uindex ON resources (guid);
 CREATE TABLE users_roles

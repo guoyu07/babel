@@ -19,6 +19,4 @@ public class StockIndexController {
   public String menuManage(){
     return "stock/stockIndex";
   }
-
-
 }
