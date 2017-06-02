@@ -18,8 +18,12 @@ import java.util.List;
 @Service
 public class MenuServiceImpl implements MenuService{
 
+  private final MenuDao menuDao;
+
   @Autowired
-  MenuDao menuDao;
+  public MenuServiceImpl(MenuDao menuDao) {
+    this.menuDao = menuDao;
+  }
 
 
   public void addMenu(MenuVo menuVo) {

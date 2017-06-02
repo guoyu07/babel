@@ -26,11 +26,15 @@ import java.util.Map;
 @Service
 public class ResourceServiceImpl implements ResourceService {
 
-  @Autowired
-  RequestMappingHandlerMapping handlerMapping;
+  private final RequestMappingHandlerMapping handlerMapping;
+
+  private final ResourceDao resourceDao;
 
   @Autowired
-  ResourceDao resourceDao;
+  public ResourceServiceImpl(RequestMappingHandlerMapping handlerMapping, ResourceDao resourceDao) {
+    this.handlerMapping = handlerMapping;
+    this.resourceDao = resourceDao;
+  }
 
   @Transactional
   public void updateResources() {
