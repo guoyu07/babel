@@ -3,7 +3,6 @@ package com.babel.web.system.service.impl;
 import com.babel.platform.utils.GuidGenerator;
 import com.babel.web.system.dao.MenuDao;
 import com.babel.web.system.po.MenuPo;
-import com.babel.web.system.po.ResourcePo;
 import com.babel.web.system.service.MenuService;
 import com.babel.web.system.vo.MenuVo;
 import org.springframework.beans.factory.annotation.Autowired;
