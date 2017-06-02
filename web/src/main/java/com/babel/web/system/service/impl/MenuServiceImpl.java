@@ -28,17 +28,32 @@ public class MenuServiceImpl implements MenuService{
   public void addMenu(MenuVo menuVo) {
     MenuPo menuPo = new MenuPo();
     menuPo.setGuid(GuidGenerator.newGuid());
-    menuPo.setResourceGuid("actionGuid");
+    menuPo.setResourceGuid(menuVo.getResourceGuid());
     menuPo.setIconClass(menuVo.getIconClass());
     menuPo.setMenuName(menuVo.getMenuName());
     menuPo.setMenuIndex(menuVo.getMenuIndex());
-    menuPo.setParentGuid("parentGuid");
+    menuPo.setParentGuid(menuVo.getParentGuid());
     menuDao.addMenu(menuPo);
   }
 
   public List<MenuVo> getAllMenus() {
     List<MenuVo> menuVos = new ArrayList<MenuVo>();
     List<MenuPo> menuPos = menuDao.queryAllMenus();
+    for (final MenuPo menuPo : menuPos){
+      MenuVo menuVo = new MenuVo();
+      menuVo.setGuid(menuPo.getGuid());
+      menuVo.setIconClass(menuPo.getIconClass());
+      menuVo.setMenuIndex(menuPo.getMenuIndex());
+      menuVo.setMenuName(menuPo.getMenuName());
+      menuVo.setParentGuid(menuPo.getParentGuid());
+      menuVos.add(menuVo);
+    }
+    return menuVos;
+  }
+
+  public List<MenuVo> getMainMenus() {
+    List<MenuVo> menuVos = new ArrayList<MenuVo>();
+    List<MenuPo> menuPos = menuDao.queryMainMenus();
     for (final MenuPo menuPo : menuPos){
       MenuVo menuVo = new MenuVo();
       menuVo.setGuid(menuPo.getGuid());

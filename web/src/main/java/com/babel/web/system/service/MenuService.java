@@ -19,4 +19,10 @@ public interface MenuService {
    * 查询所有菜单项
    */
   List<MenuVo> getAllMenus();
+
+  /**
+   * 查询所有主菜单项
+   */
+  List<MenuVo> getMainMenus();
+
 }

@@ -102,147 +102,144 @@ student_id</columns>
     <column id="31" parent="9" name="icon_class">
       <data-type>varchar(50)|0</data-type>
     </column>
-    <column id="32" parent="9" name="menu_type">
-      <data-type>int(11)|0</data-type>
-    </column>
-    <index id="33" parent="9" name="Menu_guid_uindex">
+    <index id="32" parent="9" name="Menu_guid_uindex">
       <columns>guid</columns>
       <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
-    <key id="34" parent="9" name="PRIMARY">
+    <key id="33" parent="9" name="PRIMARY">
       <columns>guid</columns>
       <primary>1</primary>
     </key>
-    <key id="35" parent="9" name="Menu_guid_uindex">
+    <key id="34" parent="9" name="Menu_guid_uindex">
       <columns>guid</columns>
       <underlying-index>Menu_guid_uindex</underlying-index>
     </key>
-    <column id="36" parent="10" name="guid">
+    <column id="35" parent="10" name="guid">
       <comment>物理主键</comment>
       <mandatory>1</mandatory>
       <data-type>varchar(32)|0</data-type>
     </column>
-    <column id="37" parent="10" name="username">
+    <column id="36" parent="10" name="username">
       <comment>用户名</comment>
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="38" parent="10" name="password">
+    <column id="37" parent="10" name="password">
       <comment>密码</comment>
       <data-type>varchar(20)|0</data-type>
     </column>
-    <column id="39" parent="10" name="enabled">
+    <column id="38" parent="10" name="enabled">
       <comment>用户是否有效0：无效 1：有效</comment>
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="40" parent="11" name="guid">
+    <column id="39" parent="11" name="guid">
       <comment>物理主键</comment>
       <mandatory>1</mandatory>
       <data-type>varchar(32)|0</data-type>
     </column>
-    <column id="41" parent="11" name="role">
+    <column id="40" parent="11" name="role">
       <comment>角色</comment>
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="42" parent="11" name="description">
+    <column id="41" parent="11" name="description">
       <comment>角色描述</comment>
       <data-type>varchar(150)|0</data-type>
     </column>
-    <column id="43" parent="11" name="available">
+    <column id="42" parent="11" name="available">
       <comment>角色是否有效0:无效 1：有效</comment>
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="44" parent="12" name="guid">
+    <column id="43" parent="12" name="guid">
       <comment>物理主键</comment>
       <mandatory>1</mandatory>
       <data-type>varchar(32)|0</data-type>
     </column>
-    <column id="45" parent="12" name="permission">
+    <column id="44" parent="12" name="permission">
       <comment>权限名称</comment>
       <data-type>varchar(50)|0</data-type>
     </column>
-    <column id="46" parent="12" name="description">
+    <column id="45" parent="12" name="description">
       <comment>权限描述</comment>
       <data-type>varchar(150)|0</data-type>
     </column>
-    <column id="47" parent="12" name="available">
+    <column id="46" parent="12" name="available">
       <comment>权限模块是否有效0:无效 1：有效</comment>
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="48" parent="13" name="guid">
+    <column id="47" parent="13" name="guid">
       <comment>物理主键</comment>
       <mandatory>1</mandatory>
       <data-type>varchar(32)|0</data-type>
     </column>
-    <column id="49" parent="13" name="resource">
+    <column id="48" parent="13" name="resource">
       <comment>资源名称</comment>
       <data-type>varchar(300)|0</data-type>
     </column>
-    <column id="50" parent="13" name="description">
+    <column id="49" parent="13" name="description">
       <comment>资源描述</comment>
       <data-type>varchar(150)|0</data-type>
     </column>
-    <column id="51" parent="13" name="available">
+    <column id="50" parent="13" name="available">
       <comment>资源是否有效0：无效 1：有效</comment>
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="52" parent="13" name="resource_type">
+    <column id="51" parent="13" name="resource_type">
       <data-type>int(11)|0</data-type>
     </column>
-    <index id="53" parent="13" name="resources_guid_uindex">
+    <index id="52" parent="13" name="resources_guid_uindex">
       <columns>guid</columns>
       <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
-    <key id="54" parent="13" name="PRIMARY">
+    <key id="53" parent="13" name="PRIMARY">
       <columns>guid</columns>
       <primary>1</primary>
     </key>
-    <key id="55" parent="13" name="resources_guid_uindex">
+    <key id="54" parent="13" name="resources_guid_uindex">
       <columns>guid</columns>
       <underlying-index>resources_guid_uindex</underlying-index>
     </key>
-    <column id="56" parent="14" name="user_guid">
+    <column id="55" parent="14" name="user_guid">
       <comment>用户表物理主键</comment>
       <mandatory>1</mandatory>
       <data-type>varchar(32)|0</data-type>
     </column>
-    <column id="57" parent="14" name="role_guid">
+    <column id="56" parent="14" name="role_guid">
       <comment>角色表物理主键</comment>
       <mandatory>1</mandatory>
       <data-type>varchar(32)|0</data-type>
     </column>
-    <key id="58" parent="14" name="PRIMARY">
+    <key id="57" parent="14" name="PRIMARY">
       <columns>user_guid
 role_guid</columns>
       <primary>1</primary>
     </key>
-    <column id="59" parent="15" name="role_guid">
+    <column id="58" parent="15" name="role_guid">
       <comment>角色表物理主键</comment>
       <mandatory>1</mandatory>
       <data-type>varchar(32)|0</data-type>
     </column>
-    <column id="60" parent="15" name="permission_guid">
+    <column id="59" parent="15" name="permission_guid">
       <comment>权限表物理主键</comment>
       <mandatory>1</mandatory>
       <data-type>varchar(32)|0</data-type>
     </column>
-    <key id="61" parent="15" name="PRIMARY">
+    <key id="60" parent="15" name="PRIMARY">
       <columns>role_guid
 permission_guid</columns>
       <primary>1</primary>
     </key>
-    <column id="62" parent="16" name="permission_guid">
+    <column id="61" parent="16" name="permission_guid">
       <comment>权限表物理主键</comment>
       <mandatory>1</mandatory>
       <data-type>varchar(32)|0</data-type>
     </column>
-    <column id="63" parent="16" name="resource_guid">
+    <column id="62" parent="16" name="resource_guid">
       <comment>资源表物理主键</comment>
       <mandatory>1</mandatory>
       <data-type>varchar(32)|0</data-type>
     </column>
-    <key id="64" parent="16" name="PRIMARY">
+    <key id="63" parent="16" name="PRIMARY">
       <columns>permission_guid
 resource_guid</columns>
       <primary>1</primary>

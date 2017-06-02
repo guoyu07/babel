@@ -31,4 +31,10 @@ public interface MenuDao {
    * @return
    */
   List<MenuPo> queryAllMenus();
+
+  /**
+   * 查询所有主菜单项
+   * @return
+   */
+  List<MenuPo> queryMainMenus();
 }

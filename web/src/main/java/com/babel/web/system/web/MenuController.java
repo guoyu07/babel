@@ -1,5 +1,7 @@
 package com.babel.web.system.web;
 
+import com.babel.platform.utils.ResponseResult;
+import com.babel.platform.utils.RestResultGenerator;
 import com.babel.web.common.ResourceTypeEnum;
 import com.babel.web.common.annotation.ResourceType;
 import com.babel.web.system.service.MenuService;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.awt.*;
 import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
@@ -22,8 +25,12 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @RequestMapping("/menu")
 public class MenuController {
 
+  private final MenuService menuService;
+
   @Autowired
-  MenuService menuService;
+  public MenuController(MenuService menuService) {
+    this.menuService = menuService;
+  }
 
   @RequestMapping(value="/menuManage")
   @Description("菜单管理")
@@ -44,5 +51,13 @@ public class MenuController {
   @ResponseBody
   public List<MenuVo> getAllMenus(){
     return menuService.getAllMenus();
+  }
+
+  @RequestMapping(value = "/getMainMenus", method = GET)
+  @Description("获取所有主菜单项")
+  @ResponseBody
+  public ResponseResult<List<MenuVo>> getMainMenus(){
+    List<MenuVo> menuVos = menuService.getMainMenus();
+    return RestResultGenerator.genResult(menuVos,null);
   }
 }

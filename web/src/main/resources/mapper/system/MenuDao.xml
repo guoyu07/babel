@@ -64,4 +64,18 @@
             m.resource_guid = r.guid
     </select>
 
+    <select id="queryMainMenus" resultType="com.babel.web.system.po.MenuPo">
+        SELECT
+            m.guid,
+            m.menu_name,
+            m.menu_index,
+            m.icon_class
+        FROM
+            menu m
+        WHERE
+            m.parent_guid IS NULL
+        OR
+            m.parent_guid = ""
+    </select>
+
 </mapper>
