@@ -10,7 +10,8 @@
             guid,
             resource,
             description,
-            available
+            available,
+            resource_type
         FROM
             resources
     </select>
@@ -19,11 +20,13 @@
         INSERT INTO resources (guid,
         resource,
         description,
-        available)
+        available,
+        resource_type)
         VALUES (#{guid},
         #{resource},
         #{description},
-        #{available})
+        #{available},
+        #{resourceType})
     </insert>
 
 

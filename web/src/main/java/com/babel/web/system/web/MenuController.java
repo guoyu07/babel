@@ -1,5 +1,7 @@
 package com.babel.web.system.web;
 
+import com.babel.web.common.ResourceTypeEnum;
+import com.babel.web.common.annotation.ResourceType;
 import com.babel.web.system.service.MenuService;
 import com.babel.web.system.vo.MenuVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,7 @@ public class MenuController {
 
   @RequestMapping(value="/menuManage")
   @Description("菜单管理")
+  @ResourceType(ResourceTypeEnum.MENU)
   public String menuManage(){
     return "system/menu";
   }

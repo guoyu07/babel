@@ -26,7 +26,7 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
                         <div class="x_title">
-                            <h2>增加菜单项</h2>
+                            <h2>增加主菜单</h2>
 
                             <div class="clearfix"></div>
                         </div>
@@ -35,24 +35,18 @@
                             <form  data-parsley-validate class="form-horizontal form-label-left">
 
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="parentName">父节点</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" id="parentName" name="parentName" required="required" class="form-control col-md-7 col-xs-12">
-                                    </div>
-                                </div>
-                                <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="menuName">名称</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="text" id="menuName" name="menuName" required="required" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="resource">资源</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <select class="form-control" id="resource" name="resource">
-                                        </select>
-                                    </div>
-                                </div>
+                                <!--<div class="form-group">-->
+                                    <!--<label class="control-label col-md-3 col-sm-3 col-xs-12" for="resource">资源</label>-->
+                                    <!--<div class="col-md-6 col-sm-6 col-xs-12">-->
+                                        <!--<select class="form-control" id="resource" name="resource">-->
+                                        <!--</select>-->
+                                    <!--</div>-->
+                                <!--</div>-->
                                 <div class="form-group">
                                     <label for="menuIndex" class="control-label col-md-3 col-sm-3 col-xs-12">顺序</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
@@ -159,29 +153,28 @@
 
         $("#button_addMenu").click(function(){
 
-            $("#itemmodal").modal();
-//            var parentName = $("#parentName").val();
-//            var menuName = $("#menuName").val();
-//            var menuIndex = $("#menuIndex").val();
-//            var iconClass = $("#iconClass").val();
-//
-//            var menuVo = {parentName:parentName,
-//                menuName:menuName,
-//                menuIndex:menuIndex,
-//                iconClass:iconClass
-//            };//拼装成json格式
-//
-//            $.ajax({
-//                type:"POST",
-//                url:"/addMenu",
-//                data:menuVo,
-//                success:function(){
-//                    alert("成功");
-//                },
-//                error:function(e) {
-//                    alert("出错："+e);
-//                }
-//            });
+//            $("#itemmodal").modal();
+            var menuName = $("#menuName").val();
+            var menuIndex = $("#menuIndex").val();
+            var iconClass = $("#iconClass").val();
+
+            var menuVo = {
+                menuName:menuName,
+                menuIndex:menuIndex,
+                iconClass:iconClass
+            };//拼装成json格式
+
+            $.ajax({
+                type:"POST",
+                url:"/menu/addMenu",
+                data:menuVo,
+                success:function(){
+                    alert("成功");
+                },
+                error:function(e) {
+                    alert("出错："+e);
+                }
+            });
         });
     </script>
 

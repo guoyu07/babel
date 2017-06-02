@@ -1,6 +1,8 @@
 package com.babel.web.system.service.impl;
 
 import com.babel.platform.utils.GuidGenerator;
+import com.babel.web.common.ResourceTypeEnum;
+import com.babel.web.common.annotation.ResourceType;
 import com.babel.web.system.dao.ResourceDao;
 import com.babel.web.system.po.ResourcePo;
 import com.babel.web.system.service.ResourceService;
@@ -53,7 +55,6 @@ public class ResourceServiceImpl implements ResourceService {
     }
   }
 
-  @Override
   public List<ResourcePo> getAllResources() {
     return resourceDao.queryAllResources();
   }
@@ -84,14 +85,22 @@ public class ResourceServiceImpl implements ResourceService {
       Method methodTmp = valueTmp.getMethod();
       //注解
       String description = "未定义";
-      Description annotation = methodTmp.getAnnotation(Description.class);
-      if (null != annotation)
-        description = annotation.value();
+      Description descriptionAnnotation = methodTmp.getAnnotation(Description.class);
+      if (null != descriptionAnnotation){
+        description = descriptionAnnotation.value();
+      }
+      ResourceTypeEnum resourceType = ResourceTypeEnum.ACTION;
+      ResourceType resourceTypeAnnotation = methodTmp.getAnnotation(ResourceType.class);
+      if (null != resourceTypeAnnotation){
+        resourceType = resourceTypeAnnotation.value();
+      }
+
       //放入对象
       ResourcePo resourcePo = new ResourcePo();
       resourcePo.setGuid(GuidGenerator.newGuid());
       resourcePo.setResource(url);
       resourcePo.setAvailable(1);
+      resourcePo.setResourceType(resourceType.getResourceType());
       resourcePo.setDescription(description);
       resourcePoList.add(resourcePo);
     }

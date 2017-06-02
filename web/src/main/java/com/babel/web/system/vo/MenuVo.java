@@ -11,6 +11,17 @@ public class MenuVo {
   private String parentName;
   private String resourceGuid;
   private String resource;
+  private int menuIndex;
+  private String iconClass;
+  private int menuType; //0:主菜单 1:子菜单
+
+  public int getMenuType() {
+    return menuType;
+  }
+
+  public void setMenuType(int menuType) {
+    this.menuType = menuType;
+  }
 
   public String getResourceGuid() {
     return resourceGuid;
@@ -27,9 +38,6 @@ public class MenuVo {
   public void setResource(String resource) {
     this.resource = resource;
   }
-
-  private int menuIndex;
-  private String iconClass;
 
   public String getParentName() {
     return parentName;

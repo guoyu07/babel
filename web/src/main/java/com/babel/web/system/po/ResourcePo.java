@@ -8,6 +8,15 @@ public class ResourcePo {
   private String resource;
   private String description;
   private int available;
+  private int resourceType;//资源类型 0:menu 1:tab 2:action
+
+  public int getResourceType() {
+    return resourceType;
+  }
+
+  public void setResourceType(int resourceType) {
+    this.resourceType = resourceType;
+  }
 
   public String getGuid() {
     return guid;
