@@ -1,4 +1,4 @@
-package com.babel.web.system.web;
+package com.babel.web.system.controller;
 
 /**
  * Created by allen on 2017/5/22.

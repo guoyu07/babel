@@ -1,4 +1,4 @@
-package com.babel.web.system.web;
+package com.babel.web.system.controller;
 
 import com.babel.web.common.ResourceTypeEnum;
 import com.babel.web.common.annotation.ResourceType;
@@ -9,16 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * Created by allen on 2017/5/31.
  */
+@RequestMapping("role")
 @Controller
-@RequestMapping("permission")
-public class PermissionController {
-
-  @RequestMapping(value="/permissionManage")
-  @Description("权限管理")
+public class RoleController {
+  @RequestMapping(value="/roleManage")
+  @Description("角色管理")
   @ResourceType(ResourceTypeEnum.MENU)
   public String menuManage(){
-    return "system/permission";
+    return "system/role";
   }
-
 
 }

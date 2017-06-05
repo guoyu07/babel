@@ -1,4 +1,4 @@
-package com.babel.web.system.web;
+package com.babel.web.system.controller;
 
 import com.babel.platform.utils.ResponseResult;
 import com.babel.platform.utils.RestResultGenerator;

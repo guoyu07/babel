@@ -10,12 +10,14 @@
                           resource_guid,
                           parent_guid,
                           menu_index,
+                          menu_type,
                           icon_class)
               VALUES (#{guid},
                     #{menuName},
                     #{resourceGuid},
                     #{parentGuid},
                     #{menuIndex},
+                    #{menuType},
                     #{iconClass})
     </insert>
 
@@ -41,6 +43,7 @@
         <result property="parentGuid" column="parent_guid"/>
         <result property="menuIndex" column="menu_index"/>
         <result property="iconClass" column="icon_class"/>
+        <result property="menuType" column="menu_type"/>
         <association property="tempClass" javaType="com.babel.web.system.entity.Resource">
             <id property="resourceGuid" column="resource_guid"/>
             <result property="resource" column="resource"/>
@@ -55,6 +58,7 @@
             m.parent_guid,
             m.menu_index,
             m.icon_class,
+            m.menu_type,
             r.resource
         FROM
             menu m
@@ -69,7 +73,8 @@
             m.guid,
             m.menu_name,
             m.menu_index,
-            m.icon_class
+            m.icon_class,
+            m.menu_type
         FROM
             menu m
         WHERE

@@ -1,4 +1,4 @@
-package com.babel.web.system.web;
+package com.babel.web.stock.controller;
 
 import com.babel.web.common.ResourceTypeEnum;
 import com.babel.web.common.annotation.ResourceType;
@@ -7,16 +7,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * Created by allen on 2017/5/31.
+ * Created by allen on 2017/6/2.
  */
-@RequestMapping("role")
+@RequestMapping("stockIndex")
 @Controller
-public class RoleController {
-  @RequestMapping(value="/roleManage")
-  @Description("角色管理")
+public class StockIndexController {
+
+  @RequestMapping(value="/stockIndex")
+  @Description("股票指数")
   @ResourceType(ResourceTypeEnum.MENU)
   public String menuManage(){
-    return "system/role";
+    return "stock/stockIndex";
   }
-
 }

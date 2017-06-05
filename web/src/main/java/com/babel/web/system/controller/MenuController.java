@@ -1,11 +1,11 @@
-package com.babel.web.system.web;
+package com.babel.web.system.controller;
 
 import com.babel.platform.utils.ResponseResult;
 import com.babel.platform.utils.RestResultGenerator;
 import com.babel.web.common.ResourceTypeEnum;
 import com.babel.web.common.annotation.ResourceType;
+import com.babel.web.system.entity.Menu;
 import com.babel.web.system.service.MenuService;
-import com.babel.web.system.dto.MenuVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Description;
 import org.springframework.stereotype.Controller;
@@ -48,27 +48,27 @@ public class MenuController {
 
   @RequestMapping(value="/add", method = POST)
   @Description("添加菜单")
-  public String addMenu(MenuVo menuVo){
-    menuService.addMenu(menuVo);
+  public String addMenu(Menu menu){
+    menuService.addMenu(menu);
     return "system/menu";
   }
 
   @Description("获取所有菜单项")
   @ResponseBody
   @RequestMapping(value = "/list",method = GET)
-  public List<MenuVo> list(){
+  public List<Menu> list(){
     return menuService.getMenuList();
   }
 
-  public static List<MenuVo> getMenus(){
+  public static List<Menu> getMenus(){
     return staticMenuService.getMenuList();
   }
 
   @RequestMapping(value = "/mainMenus", method = GET)
   @Description("获取所有主菜单项")
   @ResponseBody
-  public ResponseResult<List<MenuVo>> getMainMenus(){
-    List<MenuVo> menuVos = menuService.getMainMenus();
-    return RestResultGenerator.genResult(menuVos,null);
+  public ResponseResult<List<Menu>> getMainMenus(){
+    List<Menu> menuList = menuService.getMainMenus();
+    return RestResultGenerator.genResult(menuList,null);
   }
 }

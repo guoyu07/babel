@@ -11,6 +11,15 @@ public class Menu {
   private String parentGuid;
   private int menuIndex;
   private String iconClass;
+  private int menuType;
+
+  public int getMenuType() {
+    return menuType;
+  }
+
+  public void setMenuType(int menuType) {
+    this.menuType = menuType;
+  }
 
   public String getResource() {
     return resource;
