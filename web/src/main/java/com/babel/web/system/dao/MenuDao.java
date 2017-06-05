@@ -16,9 +16,9 @@ public interface MenuDao {
 
   /**
    * 删除菜单项
-   * @param guid
+   * @param resourceGuid
    */
-  void deleteMenu(String guid);
+  void deleteMenu(String resourceGuid);
 
   /**
    * 更新菜单项

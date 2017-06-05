@@ -92,19 +92,15 @@
 
         //------zTree数据
         $(function () {
-//            $.fn.zTree.init($("#navigationTree"), setting);
+            $.fn.zTree.init($("#navigationTree"), setting);
 
-//            menu.getMenus();
+            MessengerAjaxGet("/menu/mainMenus", null, function(data){
+                InitMainMenusSelect(data);
+            });
 
-//            MessengerAjaxGet("/menu/getMainMenus", null, function(data){
-//                InitMainMenusSelect(data);
-//            });
-//
-//            MessengerAjaxGet("/resource/getAllResources", null, function(data){
-//                InitResourcesSelect(data);
-//            });
-
-
+            MessengerAjaxGet("/resource/list", null, function(data){
+                InitResourcesSelect(data);
+            });
         });
 
         var setting = {

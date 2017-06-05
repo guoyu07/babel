@@ -3,6 +3,7 @@ package com.babel.web.system.service.impl;
 import com.babel.platform.utils.GuidGenerator;
 import com.babel.web.common.ResourceTypeEnum;
 import com.babel.web.common.annotation.ResourceType;
+import com.babel.web.system.dao.MenuDao;
 import com.babel.web.system.dao.ResourceDao;
 import com.babel.web.system.entity.Resource;
 import com.babel.web.system.service.ResourceService;
@@ -30,10 +31,13 @@ public class ResourceServiceImpl implements ResourceService {
 
   private final ResourceDao resourceDao;
 
+  private final MenuDao menuDao;
+
   @Autowired
-  public ResourceServiceImpl(RequestMappingHandlerMapping handlerMapping, ResourceDao resourceDao) {
+  public ResourceServiceImpl(RequestMappingHandlerMapping handlerMapping, ResourceDao resourceDao, MenuDao menuDao) {
     this.handlerMapping = handlerMapping;
     this.resourceDao = resourceDao;
+    this.menuDao = menuDao;
   }
 
   @Transactional
@@ -43,14 +47,15 @@ public class ResourceServiceImpl implements ResourceService {
 
     //先删除数据库中冗余资源
     for(Resource tmpDbResource : resourcePosFromDb){
-      if(null == findResourcePo(resources, tmpDbResource)){
+      if(null == findResource(resources, tmpDbResource)){
         resourceDao.deleteResource(tmpDbResource);
+        menuDao.deleteMenu(tmpDbResource.getGuid());
       }
     }
 
     //再添加新的资源
     for (Resource tmpResource : resources) {
-      Resource tmpDbResource = findResourcePo(resourcePosFromDb, tmpResource);
+      Resource tmpDbResource = findResource(resourcePosFromDb, tmpResource);
       if (null == tmpDbResource) {
         resourceDao.addResource(tmpResource);
       } else if (!tmpDbResource.getDescription().equals(tmpResource.getDescription())) {
@@ -63,7 +68,7 @@ public class ResourceServiceImpl implements ResourceService {
     return resourceDao.queryAllResources();
   }
 
-  private Resource findResourcePo(List<Resource> resources, Resource tmpResource) {
+  private Resource findResource(List<Resource> resources, Resource tmpResource) {
 
     for (Resource resource : resources) {
       if (resource.getResource().equals(tmpResource.getResource())) {

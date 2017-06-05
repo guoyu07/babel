@@ -18,13 +18,13 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
  * Created by allen on 2017/5/31.
  */
 @Controller
-@RequestMapping("resource")
+@RequestMapping("/resource")
 public class ResourceController {
 
   @Autowired
   ResourceService resourceService;
 
-  @RequestMapping(value = "/getAllResources", method = GET)
+  @RequestMapping(value = "/list", method = GET)
   @Description("获取所有资源")
   @ResponseBody
   public ResponseResult getAllResources(){

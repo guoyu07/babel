@@ -21,8 +21,8 @@
                     #{iconClass})
     </insert>
 
-    <delete id="deleteMenu" parameterType="String">
-     DELETE FROM menu WHERE guid = #{guid}
+    <delete id="deleteMenu">
+     DELETE FROM menu WHERE resource_guid = #{resourceGuid}
     </delete>
 
     <update id="reduceNumber">

@@ -9,11 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * Created by allen on 2017/6/2.
  */
-@RequestMapping("stockIndex")
 @Controller
 public class StockIndexController {
 
-  @RequestMapping(value="/stockIndex")
+  @RequestMapping(value="/")
   @Description("股票指数")
   @ResourceType(ResourceTypeEnum.MENU)
   public String menuManage(){
