@@ -91,89 +91,89 @@
 //            });
 //        });
 
-        var setting = {
-            view: {
-                showIcon: showIconForTree,
-                showLine: false
-            },
-            data: {
-                key: {
-                    name: "itemName"
-                },
-                simpleData: {
-                    enable: true,
-                    idKey: "guid",
-                    pIdKey: "fatherGuid",
-                    rootPId: 0
-                }
-            },
-            async: {
-                enable: true,
-                url: "/menu/get",
-                type: "get"
-            },
-            callback: {
-                onAsyncSuccess: zTreeOnAsyncSuccess
-            }
-        };
+        <!--var setting = {-->
+            <!--view: {-->
+                <!--showIcon: showIconForTree,-->
+                <!--showLine: false-->
+            <!--},-->
+            <!--data: {-->
+                <!--key: {-->
+                    <!--name: "itemName"-->
+                <!--},-->
+                <!--simpleData: {-->
+                    <!--enable: true,-->
+                    <!--idKey: "guid",-->
+                    <!--pIdKey: "fatherGuid",-->
+                    <!--rootPId: 0-->
+                <!--}-->
+            <!--},-->
+            <!--async: {-->
+                <!--enable: true,-->
+                <!--url: "/menu/get",-->
+                <!--type: "get"-->
+            <!--},-->
+            <!--callback: {-->
+                <!--onAsyncSuccess: zTreeOnAsyncSuccess-->
+            <!--}-->
+        <!--};-->
 
-        function showIconForTree(treeId, treeNode) {
-            return !treeNode.isParent;
-        }
+        <!--function showIconForTree(treeId, treeNode) {-->
+            <!--return !treeNode.isParent;-->
+        <!--}-->
 
-        function zTreeOnAsyncSuccess(event, treeId, msg) {
-            var zTree = $.fn.zTree.getZTreeObj(treeId);
-            zTree.expandAll(true);
+        <!--function zTreeOnAsyncSuccess(event, treeId, msg) {-->
+            <!--var zTree = $.fn.zTree.getZTreeObj(treeId);-->
+            <!--zTree.expandAll(true);-->
 
-            var nodes = zTree.getNodes();
-            InitNavigationListSelect(nodes);
-        }
+            <!--var nodes = zTree.getNodes();-->
+            <!--InitNavigationListSelect(nodes);-->
+        <!--}-->
 
-        function InitNavigationListSelect(navigationList) {
-            $('#fatherGuid').empty();
-            $('#fatherGuid').append("<option value=''></option>");
-            for (var i = 0; i < navigationList.length; ++i) {
-                $('#fatherGuid').append('<option value="' + navigationList[i].guid + '">' + navigationList[i].itemName + '</option>');
-            }
-        }
+        <!--function InitNavigationListSelect(navigationList) {-->
+            <!--$('#fatherGuid').empty();-->
+            <!--$('#fatherGuid').append("<option value=''></option>");-->
+            <!--for (var i = 0; i < navigationList.length; ++i) {-->
+                <!--$('#fatherGuid').append('<option value="' + navigationList[i].guid + '">' + navigationList[i].itemName + '</option>');-->
+            <!--}-->
+        <!--}-->
 
-        function InitControllerActionListSelect(controllerActionList) {
-            $('#urlGuid').empty();
-            $('#urlGuid').append("<option value=''></option>");
-            for (var j = 0; j < controllerActionList.length; ++j) {
-                $('#urlGuid').append('<option value="' + controllerActionList[j].guid + '">' +
-                        controllerActionList[j].url +
-                        '(' + controllerActionList[j].description + ')'
-                        + '</option>');
-            }
-        }
+        <!--function InitControllerActionListSelect(controllerActionList) {-->
+            <!--$('#urlGuid').empty();-->
+            <!--$('#urlGuid').append("<option value=''></option>");-->
+            <!--for (var j = 0; j < controllerActionList.length; ++j) {-->
+                <!--$('#urlGuid').append('<option value="' + controllerActionList[j].guid + '">' +-->
+                        <!--controllerActionList[j].url +-->
+                        <!--'(' + controllerActionList[j].description + ')'-->
+                        <!--+ '</option>');-->
+            <!--}-->
+        <!--}-->
 
 
-        $("#button_addMenu").click(function(){
-            var parentName = $("#parentName").val();
-            var menuName = $("#menuName").val();
-            var menuIndex = $("#menuIndex").val();
-            var iconClass = $("#iconClass").val();
+        <!--$("#button_addMenu").click(function(){-->
+            <!--var parentName = $("#parentName").val();-->
+            <!--var menuName = $("#menuName").val();-->
+            <!--var menuIndex = $("#menuIndex").val();-->
+            <!--var iconClass = $("#iconClass").val();-->
 
-            var menuVo = {parentName:parentName,
-                menuName:menuName,
-                menuIndex:menuIndex,
-                iconClass:iconClass
-            };//拼装成json格式
+            <!--var menuVo = {parentName:parentName,-->
+                <!--menuName:menuName,-->
+                <!--menuIndex:menuIndex,-->
+                <!--iconClass:iconClass-->
+            <!--};//拼装成json格式-->
 
-            $.ajax({
-                type:"POST",
-                url:"/addMenu",
-                data:menuVo,
-                success:function(){
-                    alert("成功");
-                },
-                error:function(e) {
-                    alert("出错："+e);
-                }
-            });
-        });
-    </script>
+            <!--$.ajax({-->
+                <!--type:"POST",-->
+                <!--url:"/addMenu",-->
+                <!--data:menuVo,-->
+                <!--success:function(){-->
+                    <!--alert("成功");-->
+                <!--},-->
+                <!--error:function(e) {-->
+                    <!--alert("出错："+e);-->
+                <!--}-->
+            <!--});-->
+        <!--});-->
+    <!--</script>-->
 
 </div>
 </html>

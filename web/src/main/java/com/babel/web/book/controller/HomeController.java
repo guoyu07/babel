@@ -1,4 +1,4 @@
-package com.babel.web.book.web;
+package com.babel.web.book.controller;
 
 import org.springframework.context.annotation.Description;
 import org.springframework.stereotype.Controller;

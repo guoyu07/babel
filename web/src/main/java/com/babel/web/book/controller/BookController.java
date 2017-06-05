@@ -1,4 +1,4 @@
-package com.babel.web.book.web;
+package com.babel.web.book.controller;
 
 import com.babel.web.book.vo.AppointExecution;
 import com.babel.web.book.vo.Result;

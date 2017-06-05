@@ -42,7 +42,7 @@ public class MenuController {
   @RequestMapping(value="/" ,method = GET)
   @Description("菜单管理")
   @ResourceType(ResourceTypeEnum.MENU)
-  public String menuManage(){
+  public String home(){
     return "system/menu";
   }
 

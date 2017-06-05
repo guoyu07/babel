@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/role")
 @Controller
 public class RoleController {
+
   @RequestMapping(value="/")
   @Description("角色管理")
   @ResourceType(ResourceTypeEnum.MENU)
