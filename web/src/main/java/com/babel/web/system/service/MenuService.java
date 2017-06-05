@@ -1,6 +1,6 @@
 package com.babel.web.system.service;
 
-import com.babel.web.system.vo.MenuVo;
+import com.babel.web.system.dto.MenuVo;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ public interface MenuService {
   /**
    * 查询所有菜单项
    */
-  List<MenuVo> getAllMenus();
+  List<MenuVo> getMenuList();
 
   /**
    * 查询所有主菜单项

@@ -2,7 +2,7 @@ package com.babel.web.system.web;
 
 import com.babel.platform.utils.ResponseResult;
 import com.babel.platform.utils.RestResultGenerator;
-import com.babel.web.system.po.ResourcePo;
+import com.babel.web.system.entity.Resource;
 import com.babel.web.system.service.ResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Description;
@@ -28,8 +28,8 @@ public class ResourceController {
   @Description("获取所有资源")
   @ResponseBody
   public ResponseResult getAllResources(){
-    List<ResourcePo> resourcePos = resourceService.getAllResources();
-    return RestResultGenerator.genResult(resourcePos,null);
+    List<Resource> resources = resourceService.getAllResources();
+    return RestResultGenerator.genResult(resources,null);
   }
 
 }

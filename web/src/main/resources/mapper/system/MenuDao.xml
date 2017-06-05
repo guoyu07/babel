@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.babel.web.system.dao.MenuDao">
     <!--目的：为dao接口方法提供sql语句配置-->
-    <insert id="addMenu"  parameterType="com.babel.web.system.po.MenuPo">
+    <insert id="addMenu"  parameterType="com.babel.web.system.entity.Menu">
         INSERT INTO menu (guid,
                           menu_name,
                           resource_guid,
@@ -35,19 +35,19 @@
         AND number > 0
     </update>
     
-    <resultMap id="menuPo" type="com.babel.web.system.po.MenuPo">
+    <resultMap id="menuPo" type="com.babel.web.system.entity.Menu">
         <id property="guid" column="guid"/>
         <result property="menuName" column="menu_name"/>
         <result property="parentGuid" column="parent_guid"/>
         <result property="menuIndex" column="menu_index"/>
         <result property="iconClass" column="icon_class"/>
-        <association property="tempClass" javaType="com.babel.web.system.po.ResourcePo">
+        <association property="tempClass" javaType="com.babel.web.system.entity.Resource">
             <id property="resourceGuid" column="resource_guid"/>
             <result property="resource" column="resource"/>
         </association>
     </resultMap>
     
-    <select id="queryAllMenus" resultType="com.babel.web.system.po.MenuPo">
+    <select id="queryAll" resultType="com.babel.web.system.entity.Menu">
         SELECT
             m.guid,
             m.menu_name,
@@ -64,7 +64,7 @@
             m.resource_guid = r.guid
     </select>
 
-    <select id="queryMainMenus" resultType="com.babel.web.system.po.MenuPo">
+    <select id="queryMainMenus" resultType="com.babel.web.system.entity.Menu">
         SELECT
             m.guid,
             m.menu_name,

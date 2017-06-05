@@ -26,12 +26,19 @@
                 <div class="menu_section">
                     <h3>General</h3>
                     <ul class="nav side-menu">
-                        <li><a><i class="fa fa-home"></i> 系统参数 <span class="fa fa-chevron-down"></span></a>
+                        <!--/*@thymesVar id="menuList" type=""*/-->
+                        <li th:each="parentTmp:${menuList}" th:if="${parentTmp.parentGuid}==''">
+                            <a>
+                                <i class="fa fa-home"></i>
+                                <span th:text="${parentTmp.menuName}"></span>
+                                <span class="fa fa-chevron-down"></span>
+                            </a>
                             <ul class="nav child_menu">
-                                <li><a href="/menu/menuManage">菜单</a></li>
-                                <li><a href="/permission/permissionManage">权限</a></li>
-                                <li><a href="/role/roleManage">角色</a></li>
-                                <li><a href="/user/userManage">用户</a></li>
+                                <li th:each="subTmp : ${menuList}" th:if="${subTmp.parentGuid eq parentTmp.guid}">
+                                    <a th:href="${subTmp.resource}">
+                                        <span th:text="${subTmp.menuName}"></span>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>

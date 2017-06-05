@@ -5,6 +5,11 @@ import com.babel.platform.enums.ResponseErrorEnum;
 /**
  * Created by allen on 2017/6/1.
  */
+
+/**
+ * 所有ajax请求返回结果
+ * @param <T>
+ */
 public class ResponseResult<T> {
 
   private boolean success;
@@ -51,9 +56,4 @@ public class ResponseResult<T> {
     this.errorCode = responseErrorEnum.getCode();
     this.message = responseErrorEnum.getMessage();
   }
-
-
-
-
-
 }

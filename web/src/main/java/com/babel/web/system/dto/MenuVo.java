@@ -1,4 +1,4 @@
-package com.babel.web.system.vo;
+package com.babel.web.system.dto;
 
 /**
  * Created by allen on 2017/5/22.

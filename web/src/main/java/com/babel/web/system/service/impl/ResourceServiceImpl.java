@@ -4,7 +4,7 @@ import com.babel.platform.utils.GuidGenerator;
 import com.babel.web.common.ResourceTypeEnum;
 import com.babel.web.common.annotation.ResourceType;
 import com.babel.web.system.dao.ResourceDao;
-import com.babel.web.system.po.ResourcePo;
+import com.babel.web.system.entity.Resource;
 import com.babel.web.system.service.ResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Description;
@@ -38,46 +38,46 @@ public class ResourceServiceImpl implements ResourceService {
 
   @Transactional
   public void updateResources() {
-    List<ResourcePo> resourcePos = getAllResource();
-    List<ResourcePo> resourcePosFromDb = resourceDao.queryAllResources();
+    List<Resource> resources = getAllResource();
+    List<Resource> resourcePosFromDb = resourceDao.queryAllResources();
 
     //先删除数据库中冗余资源
-    for(ResourcePo tmpDbResourcePo : resourcePosFromDb){
-      if(null == findResourcePo(resourcePos,tmpDbResourcePo)){
-        resourceDao.deleteResource(tmpDbResourcePo);
+    for(Resource tmpDbResource : resourcePosFromDb){
+      if(null == findResourcePo(resources, tmpDbResource)){
+        resourceDao.deleteResource(tmpDbResource);
       }
     }
 
     //再添加新的资源
-    for (ResourcePo tmpResourcePo : resourcePos) {
-      ResourcePo tmpDbResourcePo = findResourcePo(resourcePosFromDb, tmpResourcePo);
-      if (null == tmpDbResourcePo) {
-        resourceDao.addResource(tmpResourcePo);
-      } else if (!tmpDbResourcePo.getDescription().equals(tmpResourcePo.getDescription())) {
-        resourceDao.updateResource(tmpResourcePo);
+    for (Resource tmpResource : resources) {
+      Resource tmpDbResource = findResourcePo(resourcePosFromDb, tmpResource);
+      if (null == tmpDbResource) {
+        resourceDao.addResource(tmpResource);
+      } else if (!tmpDbResource.getDescription().equals(tmpResource.getDescription())) {
+        resourceDao.updateResource(tmpResource);
       }
     }
   }
 
-  public List<ResourcePo> getAllResources() {
+  public List<Resource> getAllResources() {
     return resourceDao.queryAllResources();
   }
 
-  private ResourcePo findResourcePo(List<ResourcePo> resourcePos, ResourcePo tmpResourcePo) {
+  private Resource findResourcePo(List<Resource> resources, Resource tmpResource) {
 
-    for (ResourcePo resourcePo : resourcePos) {
-      if (resourcePo.getResource().equals(tmpResourcePo.getResource())) {
-        return resourcePo;
+    for (Resource resource : resources) {
+      if (resource.getResource().equals(tmpResource.getResource())) {
+        return resource;
       }
     }
     return null;
   }
 
 
-  private List<ResourcePo> getAllResource() {
+  private List<Resource> getAllResource() {
     //获取所有requestMapping
     Map<RequestMappingInfo, HandlerMethod> resourceMap = handlerMapping.getHandlerMethods();
-    List<ResourcePo> resourcePoList = new ArrayList<ResourcePo>();
+    List<Resource> resourceList = new ArrayList<Resource>();
     for (RequestMappingInfo key : resourceMap.keySet()) {
       //url
       String url = key.getPatternsCondition().toString().toLowerCase();//小写
@@ -100,16 +100,16 @@ public class ResourceServiceImpl implements ResourceService {
       }
 
       //放入对象
-      ResourcePo resourcePo = new ResourcePo();
-      resourcePo.setGuid(GuidGenerator.newGuid());
-      resourcePo.setResource(url);
-      resourcePo.setAvailable(1);
-      resourcePo.setResourceType(resourceType.getResourceType());
-      resourcePo.setDescription(description);
-      resourcePoList.add(resourcePo);
+      Resource resource = new Resource();
+      resource.setGuid(GuidGenerator.newGuid());
+      resource.setResource(url);
+      resource.setAvailable(1);
+      resource.setResourceType(resourceType.getResourceType());
+      resource.setDescription(description);
+      resourceList.add(resource);
     }
 
-    return resourcePoList;
+    return resourceList;
 
   }
 }

@@ -1,6 +1,6 @@
 package com.babel.web.system.service;
 
-import com.babel.web.system.po.ResourcePo;
+import com.babel.web.system.entity.Resource;
 
 import java.util.List;
 
@@ -18,6 +18,6 @@ public interface ResourceService {
    * 获取所有的资源
    * @return
    */
-  List<ResourcePo> getAllResources();
+  List<Resource> getAllResources();
 
 }

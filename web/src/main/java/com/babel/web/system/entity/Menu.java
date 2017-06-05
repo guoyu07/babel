@@ -1,9 +1,9 @@
-package com.babel.web.system.po;
+package com.babel.web.system.entity;
 
 /**
  * Created by allen on 2017/5/22.
  */
-public class MenuPo {
+public class Menu {
   private String guid;
   private String menuName;
   private String resourceGuid;//关联resourceGuid

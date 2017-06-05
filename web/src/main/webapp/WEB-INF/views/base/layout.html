@@ -19,7 +19,7 @@
 <body class="nav-md footer_fixed">
     <div class="container body">
         <div class="main_container">
-            <div th:replace="base/menu :: menu"></div>
+            <div th:replace="base/menu :: menu(menuList=${T(com.babel.web.system.web.MenuController).getMenus()})"></div>
             <div th:replace="base/header :: header"></div>
             <div layout:fragment="content"></div>
             <div th:replace="base/footer::footer"></div>
@@ -37,8 +37,8 @@
     <!-- Messenger-->
     <script src="/resources/plugins/messenger/js/messenger.min.js"></script>
     <script src="/resources/js/messenger-common.js"></script>
+    <script src="/resources/js/menu.js"></script>
 
     <section layout:fragment="script"></section>
-
 </body>
 </html>

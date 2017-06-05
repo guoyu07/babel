@@ -1,6 +1,6 @@
 package com.babel.web.system.dao;
 
-import com.babel.web.system.po.ResourcePo;
+import com.babel.web.system.entity.Resource;
 
 import java.util.List;
 
@@ -13,25 +13,25 @@ public interface ResourceDao {
    * 查找所有资源
    * @return
    */
-  List<ResourcePo> queryAllResources();
+  List<Resource> queryAllResources();
 
   /**
    * 新增资源
-   * @param resourcePo
+   * @param resource
    */
-  void addResource(ResourcePo resourcePo);
+  void addResource(Resource resource);
 
   /**
    * 更新资源
-   * @param resourcePo
+   * @param resource
    */
-  void updateResource(ResourcePo resourcePo);
+  void updateResource(Resource resource);
 
   /**
    * 删除资源
-   * @param resourcePo
+   * @param resource
    */
-  void deleteResource(ResourcePo resourcePo);
+  void deleteResource(Resource resource);
 
 
 }

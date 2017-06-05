@@ -1,9 +1,9 @@
-package com.babel.web.system.po;
+package com.babel.web.system.entity;
 
 /**
  * Created by allen on 2017/5/27.
  */
-public class ResourcePo {
+public class Resource {
   private String guid;
   private String resource;
   private String description;

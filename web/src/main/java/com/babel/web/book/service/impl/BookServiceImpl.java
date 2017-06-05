@@ -41,6 +41,15 @@ public class BookServiceImpl implements BookService {
     return bookDao.queryAll(0,1000);
   }
 
+  /**
+   * 使用注解控制事务方法的优点：
+   * 1：开发团队达成一直约定，明确标注事务方法的编程风格
+   * 2：保证事务方法的执行时间尽可能短，不要穿插其他网络操作RPC/HTTP请求或者剥离到事务方法外部
+   * 3：一定要将编译期异常转换为运行期异常抛出，才能rollback
+   * @param bookId
+   * @param studentId
+   * @return
+   */
   @Transactional
   public AppointExecution appoint(long bookId, long studentId) {
     try {

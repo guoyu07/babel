@@ -94,13 +94,15 @@
         $(function () {
             $.fn.zTree.init($("#navigationTree"), setting);
 
-            MessengerAjaxGet("/menu/getMainMenus", null, function(data){
-                InitMainMenusSelect(data);
-            });
+//            menu.getMenus();
 
-            MessengerAjaxGet("/resource/getAllResources", null, function(data){
-                InitResourcesSelect(data);
-            });
+//            MessengerAjaxGet("/menu/getMainMenus", null, function(data){
+//                InitMainMenusSelect(data);
+//            });
+//
+//            MessengerAjaxGet("/resource/getAllResources", null, function(data){
+//                InitResourcesSelect(data);
+//            });
 
 
         });
@@ -123,7 +125,7 @@
             },
             async: {
                 enable: true,
-                url: "/menu/getAllMenus",
+                url: "/menu/list",
                 type: "get"
             },
             callback: {

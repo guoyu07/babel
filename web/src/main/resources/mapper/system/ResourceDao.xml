@@ -5,7 +5,7 @@
 <mapper namespace="com.babel.web.system.dao.ResourceDao">
     <!--目的：为dao接口方法提供sql语句配置-->
 
-    <select id="queryAllResources" resultType="com.babel.web.system.po.ResourcePo">
+    <select id="queryAllResources" resultType="com.babel.web.system.entity.Resource">
         SELECT
             guid,
             resource,
@@ -16,7 +16,7 @@
             resources
     </select>
 
-    <insert id="addResource"  parameterType="com.babel.web.system.po.ResourcePo">
+    <insert id="addResource"  parameterType="com.babel.web.system.entity.Resource">
         INSERT INTO resources (guid,
         resource,
         description,
