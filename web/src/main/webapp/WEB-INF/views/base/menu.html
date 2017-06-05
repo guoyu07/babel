@@ -29,7 +29,7 @@
                         <!--/*@thymesVar id="menuList" type=""*/-->
                         <li th:each="parentTmp:${menuList}" th:if="${parentTmp.parentGuid}==''">
                             <a>
-                                <i class="fa fa-home"></i>
+                                <i th:class="${parentTmp.iconClass}"></i>
                                 <span th:text="${parentTmp.menuName}"></span>
                                 <span class="fa fa-chevron-down"></span>
                             </a>
