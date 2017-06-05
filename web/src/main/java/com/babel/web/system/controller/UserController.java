@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * Created by allen on 2017/5/31.
  */
-@RequestMapping("user")
+@RequestMapping("/user")
 @Controller
 public class UserController {
 
-  @RequestMapping(value="/userManage")
+  @RequestMapping(value="/")
   @Description("用户管理")
   @ResourceType(ResourceTypeEnum.MENU)
-  public String menuManage(){
+  public String home(){
     return "system/user";
   }
 

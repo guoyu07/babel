@@ -39,7 +39,7 @@ public class MenuController {
     staticMenuService = this.menuService;
   }
 
-  @RequestMapping(value="/")
+  @RequestMapping(value="/" ,method = GET)
   @Description("菜单管理")
   @ResourceType(ResourceTypeEnum.MENU)
   public String menuManage(){

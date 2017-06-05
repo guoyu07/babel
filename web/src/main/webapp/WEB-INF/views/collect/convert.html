@@ -3,7 +3,7 @@
       layout:decorate="base/layout">
 
 <head>
-    <title>角色管理</title>
+    <title>数据转换</title>
     <link rel="stylesheet" href="/resources/plugins/zTree/zTreeStyle.css"/>
 </head>
 <body>
@@ -15,7 +15,7 @@
         <div class="">
             <div class="page-title">
                 <div class="title_left">
-                    <h3>角色管理</h3>
+                    <h3>用户管理</h3>
                 </div>
             </div>
             <div class="clearfix"></div>
@@ -83,13 +83,13 @@
     <script type="text/javascript">
 
         //------zTree数据
-//        $(function () {
-//            $.fn.zTree.init($("#navigationTree"), setting);
-//
-//            MessengerAjaxGet("/Navigation/getNavigationPageData", null, function(data){
-//                InitControllerActionListSelect(data);
-//            });
-//        });
+        $(function () {
+            $.fn.zTree.init($("#navigationTree"), setting);
+
+            MessengerAjaxGet("/Navigation/getNavigationPageData", null, function(data){
+                InitControllerActionListSelect(data);
+            });
+        });
 
         var setting = {
             view: {

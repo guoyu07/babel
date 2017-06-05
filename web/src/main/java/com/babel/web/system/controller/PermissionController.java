@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Created by allen on 2017/5/31.
  */
 @Controller
-@RequestMapping("permission")
+@RequestMapping("/permission")
 public class PermissionController {
 
-  @RequestMapping(value="/permissionManage")
+  @RequestMapping(value="/")
   @Description("权限管理")
   @ResourceType(ResourceTypeEnum.MENU)
   public String menuManage(){

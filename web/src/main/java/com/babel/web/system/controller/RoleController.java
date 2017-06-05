@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * Created by allen on 2017/5/31.
  */
-@RequestMapping("role")
+@RequestMapping("/role")
 @Controller
 public class RoleController {
-  @RequestMapping(value="/roleManage")
+  @RequestMapping(value="/")
   @Description("角色管理")
   @ResourceType(ResourceTypeEnum.MENU)
-  public String menuManage(){
+  public String home(){
     return "system/role";
   }
 
