@@ -12,6 +12,3 @@ var menu = {
         });
     }
 }
-$(function () {
-menu.getMenus();
-})

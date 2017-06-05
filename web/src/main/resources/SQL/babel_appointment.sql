@@ -1,0 +1,2 @@
+INSERT INTO babel.appointment (book_id, student_id, appoint_time) VALUES (1000, 1234567890, '2017-05-19 10:04:36');
+INSERT INTO babel.appointment (book_id, student_id, appoint_time) VALUES (1001, 12345678910, '2017-05-19 13:44:57');
