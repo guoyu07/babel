@@ -13,27 +13,18 @@
 
 
         <div class="">
-            <div class="page-title">
-                <div class="title_left">
-                    <h3>菜单管理</h3>
-                </div>
-            </div>
             <div class="clearfix"></div>
             <div class="row">
-                <ul id="navigationTree" class="ztree nav nav-pills nav-stacked"></ul>
-            </div>
-            <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-8 col-sm-8 col-xs-8">
                     <div class="x_panel">
                         <div class="x_title">
-                            <h2>增加主菜单</h2>
+                            <h2>增加菜单</h2>
 
                             <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
                             <br />
                             <form  data-parsley-validate class="form-horizontal form-label-left">
-
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="parentGuid">父菜单</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
@@ -88,6 +79,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                    <ul id="menuTree" class="ztree nav nav-pills nav-stacked"></ul>
+                </div>
             </div>
         </div>
     </div>
@@ -98,104 +92,17 @@
 
 <div layout:fragment="script">
     <script src="/resources/plugins/zTree/jquery.ztree.all.min.js"></script>
+    <script src="/resources/js/menu.js"></script>
     <script type="text/javascript">
 
-        //------zTree数据
         $(function () {
-            $.fn.zTree.init($("#navigationTree"), setting);
-
-            MessengerAjaxGet("/menu/mainMenus", null, function(data){
-                InitMainMenusSelect(data);
-            });
-
-            MessengerAjaxGet("/resource/list", null, function(data){
-                InitResourcesSelect(data);
-            });
+            //------zTree数据
+            menuTree.initZtree();
+            menu.initParentNodeSelect();
+            menu.initChildNodeSelect();
         });
 
-        var setting = {
-            view: {
-                showIcon: false,
-                showLine:true
-            },
-            check:{
-                enable:true,
-                chkStyle:"checkbox"
-            },
-            data: {
-                key: {
-                    name: "menuName"
-                },
-                simpleData: {
-                    enable: true,
-                    idKey: "guid",
-                    pIdKey: "parentGuid"
-                }
-            },
-            async: {
-                enable: true,
-                url: "/menu/list",
-                type: "get"
-            },
-            callback: {
-                onAsyncSuccess: zTreeOnAsyncSuccess
-            }
-        };
-
-
-        function zTreeOnAsyncSuccess(event, treeId, msg) {
-            var zTree = $.fn.zTree.getZTreeObj(treeId);
-            zTree.expandAll(true);
-
-            var nodes = zTree.getNodes();
-//            InitNavigationListSelect(nodes);
-        }
-
-        function InitMainMenusSelect(mainMenus) {
-            $('#parentGuid').empty();
-            $('#parentGuid').append("<option value=''></option>");
-            for (var i = 0; i < mainMenus.length; ++i) {
-                $('#parentGuid').append('<option value="' + mainMenus[i].guid + '">' + mainMenus[i].menuName + '</option>');
-            }
-        }
-
-        function InitResourcesSelect(resources) {
-
-            $('#resourceGuid').empty();
-            $('#resourceGuid').append("<option value=''></option>");
-            for (var j = 0; j < resources.length; ++j) {
-                $('#resourceGuid').append('<option value="' + resources[j].guid + '">' +
-                        '(' + resources[j].description + ')'+
-                        resources[j].resource
-                        + '</option>');
-            }
-        }
-
-
-        $("#button_addMenu").click(function(){
-
-            var parentGuid = $("#parentGuid").val();
-            var resourceGuid = $("#resourceGuid").val();
-            var menuName = $("#menuName").val();
-            var menuIndex = $("#menuIndex").val();
-            var menuType = $("#menuType").val();
-            var iconClass = $("#iconClass").val();
-
-            var menu = {
-                parentGuid:parentGuid,
-                resourceGuid:resourceGuid,
-                menuName:menuName,
-                menuIndex:menuIndex,
-                menuType:menuType,
-                iconClass:iconClass
-            };//拼装成json格式
-
-            $.ajax({
-                type:"POST",
-                url:"/menu/add",
-                data:menu,
-            });
-        });
+        $("#button_addMenu").on("click",menu.addMenu())
     </script>
 
 </div>
