@@ -97,7 +97,7 @@
 </body>
 
 <div layout:fragment="script">
-    <script src="/resources/plugins/zTree/jquery.ztree.core-3.5.js"></script>
+    <script src="/resources/plugins/zTree/jquery.ztree.all.min.js"></script>
     <script type="text/javascript">
 
         //------zTree数据
@@ -115,8 +115,12 @@
 
         var setting = {
             view: {
-                showIcon: showIconForTree,
-                showLine: false
+                showIcon: false,
+                showLine:true
+            },
+            check:{
+                enable:true,
+                chkStyle:"checkbox"
             },
             data: {
                 key: {
@@ -125,8 +129,7 @@
                 simpleData: {
                     enable: true,
                     idKey: "guid",
-                    pIdKey: "parentGuid",
-                    rootPId: 0
+                    pIdKey: "parentGuid"
                 }
             },
             async: {
@@ -139,9 +142,6 @@
             }
         };
 
-        function showIconForTree(treeId, treeNode) {
-            return !treeNode.isParent;
-        }
 
         function zTreeOnAsyncSuccess(event, treeId, msg) {
             var zTree = $.fn.zTree.getZTreeObj(treeId);
