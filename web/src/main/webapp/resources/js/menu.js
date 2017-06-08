@@ -9,7 +9,7 @@ var menu = {
         resourceList: function () {
             return "/resource/list";
         },
-        add: function () {
+        menuAdd: function () {
             return "/menu/add";
         }
     },
@@ -57,10 +57,9 @@ var menu = {
             menuType: menuType,
             iconClass: iconClass
         };//拼装成json格式
+        var postUrl = menu.URL.menuAdd();
 
-        $.post(menu.URL.add(), menuParam).success(function (response) {
-            console.log(response)
-        });
+        $.post(postUrl, menuParam);
     }
 }
 

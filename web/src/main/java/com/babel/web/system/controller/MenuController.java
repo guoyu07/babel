@@ -48,8 +48,8 @@ public class MenuController {
 
   @RequestMapping(value="/add", method = POST)
   @Description("添加菜单")
-  public String addMenu(Menu menu){
-    menuService.addMenu(menu);
+  public String addMenu(Menu menuParam){
+    menuService.addMenu(menuParam);
     return "system/menu";
   }
 
