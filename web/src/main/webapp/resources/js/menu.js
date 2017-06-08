@@ -41,7 +41,6 @@ var menu = {
     },
 
     addMenu: function () {
-
         var parentGuid = $("#parentGuid").val();
         var resourceGuid = $("#resourceGuid").val();
         var menuName = $("#menuName").val();
@@ -100,4 +99,3 @@ var menuTree = {
         $.fn.zTree.init($("#menuTree"), setting);
     }
 }
-
