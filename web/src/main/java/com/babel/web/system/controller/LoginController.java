@@ -12,14 +12,23 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
  * Created by allen on 2017/6/8.
  */
 @Controller
-@RequestMapping("login")
+@RequestMapping("account")
 public class LoginController {
 
   @RequestMapping(value="/" ,method = GET)
   @Description("登录页")
   @ResourceType(ResourceTypeEnum.MENU)
   public String home(){
-    return "login/login";
+    return "account/login";
+  }
+
+  @RequestMapping(value="/login" ,method = GET)
+  @Description("登录")
+  public String login(String userName, String password){
+
+    //1.
+
+    return "/account/main";
   }
 
 }
