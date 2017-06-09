@@ -5,4 +5,34 @@
 <mapper namespace="com.babel.web.system.dao.UserDao">
     <!--目的：为dao接口方法提供sql语句配置-->
 
+    <insert id="add"  parameterType="com.babel.web.system.entity.User">
+        INSERT INTO user (guid,
+        username,
+        password,
+        enabled,
+        email)
+        VALUES (#{guid},
+        #{userName},
+        #{password},
+        #{enabled},
+        #{email})
+    </insert>
+
+    <update id="update">
+        UPDATE user
+        SET username = #{userName},
+            password = #{password},
+            enabled = #{enabled},
+            email = #{email}
+        WHERE
+            guid = #{guid}
+        AND number > 0
+    </update>
+
+    <delete id="delete">
+        DELETE * FROM user WHERE guid = #{guid}
+    </delete>
+
+
+
 </mapper>

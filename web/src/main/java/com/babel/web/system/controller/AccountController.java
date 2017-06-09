@@ -1,7 +1,11 @@
 package com.babel.web.system.controller;
 
+import com.babel.platform.utils.GuidGenerator;
 import com.babel.web.common.ResourceTypeEnum;
 import com.babel.web.common.annotation.ResourceType;
+import com.babel.web.system.entity.User;
+import com.babel.web.system.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Description;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +19,9 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @Controller
 @RequestMapping("/account")
 public class AccountController {
+
+  @Autowired
+  UserService userService;
 
   @RequestMapping(value="/" ,method = GET)
   @Description("登录页")
@@ -37,8 +44,8 @@ public class AccountController {
   @Description("注册")
   public String register(String regName,String regEmail, String regPwd){
 
-    //1.验证用户名密码
-    //2.获取权限和菜单
+    User user = new User(GuidGenerator.newGuid(),regName,regPwd,regEmail,1);
+    userService.add(user);
 
     return "/account/main";
   }

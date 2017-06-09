@@ -10,6 +10,14 @@ public class User {
   private String email;
   private int enabled;
 
+  public User(String guid, String userName, String password, String email, int enabled) {
+    this.guid = guid;
+    this.userName = userName;
+    this.password = password;
+    this.email = email;
+    this.enabled = enabled;
+  }
+
   public String getGuid() {
     return guid;
   }
