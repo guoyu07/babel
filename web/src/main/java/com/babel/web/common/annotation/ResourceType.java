@@ -1,6 +1,6 @@
 package com.babel.web.common.annotation;
 
-import com.babel.web.common.ResourceTypeEnum;
+import com.babel.web.common.enums.ResourceTypeEnum;
 
 import java.lang.annotation.*;
 

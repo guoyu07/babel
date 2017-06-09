@@ -2,7 +2,7 @@ package com.babel.web.system.controller;
 
 import com.babel.platform.utils.ResponseResult;
 import com.babel.platform.utils.RestResultGenerator;
-import com.babel.web.common.ResourceTypeEnum;
+import com.babel.web.common.enums.ResourceTypeEnum;
 import com.babel.web.common.annotation.ResourceType;
 import com.babel.web.system.entity.Menu;
 import com.babel.web.system.service.MenuService;

@@ -1,7 +1,7 @@
 package com.babel.web.system.controller;
 
 import com.babel.platform.utils.GuidGenerator;
-import com.babel.web.common.ResourceTypeEnum;
+import com.babel.web.common.enums.ResourceTypeEnum;
 import com.babel.web.common.annotation.ResourceType;
 import com.babel.web.system.entity.User;
 import com.babel.web.system.service.UserService;

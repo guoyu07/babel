@@ -1,7 +1,7 @@
 package com.babel.web.system.service.impl;
 
 import com.babel.platform.utils.GuidGenerator;
-import com.babel.web.common.ResourceTypeEnum;
+import com.babel.web.common.enums.ResourceTypeEnum;
 import com.babel.web.common.annotation.ResourceType;
 import com.babel.web.system.dao.MenuDao;
 import com.babel.web.system.dao.ResourceDao;

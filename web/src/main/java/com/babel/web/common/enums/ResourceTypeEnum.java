@@ -1,4 +1,4 @@
-package com.babel.web.common;
+package com.babel.web.common.enums;
 
 /**
  * Created by allen on 2017/6/2.

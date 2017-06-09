@@ -1,6 +1,6 @@
 package com.babel.web.collect.controller;
 
-import com.babel.web.common.ResourceTypeEnum;
+import com.babel.web.common.enums.ResourceTypeEnum;
 import com.babel.web.common.annotation.ResourceType;
 import org.springframework.context.annotation.Description;
 import org.springframework.stereotype.Controller;
