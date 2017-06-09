@@ -37,7 +37,7 @@ public class MenuDaoTest extends BaseTest {
     menuPo.setIconClass("menu");
     menuPo.setMenuName("股票分析");
 
-    menuDao.addMenu(menuPo);
+    menuDao.add(menuPo);
   }
 
   @Test

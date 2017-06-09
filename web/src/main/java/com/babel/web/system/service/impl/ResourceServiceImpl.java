@@ -49,7 +49,7 @@ public class ResourceServiceImpl implements ResourceService {
     for(Resource tmpDbResource : resourcePosFromDb){
       if(null == findResource(resources, tmpDbResource)){
         resourceDao.deleteResource(tmpDbResource);
-        menuDao.deleteMenu(tmpDbResource.getGuid());
+        menuDao.delete(tmpDbResource.getGuid());
       }
     }
 

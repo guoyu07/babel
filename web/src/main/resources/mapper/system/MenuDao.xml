@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.babel.web.system.dao.MenuDao">
     <!--目的：为dao接口方法提供sql语句配置-->
-    <insert id="addMenu"  parameterType="com.babel.web.system.entity.Menu">
+    <insert id="add"  parameterType="com.babel.web.system.entity.Menu">
         INSERT INTO menu (guid,
                           menu_name,
                           resource_guid,
@@ -21,11 +21,11 @@
                     #{iconClass})
     </insert>
 
-    <delete id="deleteMenu">
+    <delete id="delete">
      DELETE FROM menu WHERE resource_guid = #{resourceGuid}
     </delete>
 
-    <update id="reduceNumber">
+    <update id="update">
         UPDATE menu
         SET menu_name = #{menu_name},
             resource_guid = #{resource_guid},

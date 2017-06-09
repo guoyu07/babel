@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,7 +29,7 @@ public class MenuServiceImpl implements MenuService{
 
   public void addMenu(Menu menu) {
     menu.setGuid(GuidGenerator.newGuid());
-    menuDao.addMenu(menu);
+    menuDao.add(menu);
   }
 
   public List<Menu> getMenuList() {
