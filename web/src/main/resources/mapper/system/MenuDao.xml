@@ -4,6 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.babel.web.system.dao.MenuDao">
     <!--目的：为dao接口方法提供sql语句配置-->
+    <cache type="com.babel.web.common.cache.MybatisRedisCache"/>
+
     <insert id="add"  parameterType="com.babel.web.system.entity.Menu">
         INSERT INTO menu (guid,
                           menu_name,

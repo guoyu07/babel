@@ -1,9 +1,11 @@
 package com.babel.web.system.entity;
 
+import java.io.Serializable;
+
 /**
  * Created by allen on 2017/5/22.
  */
-public class Menu {
+public class Menu implements Serializable {
   private String guid;
   private String menuName;
   private String resourceGuid;//关联resourceGuid
