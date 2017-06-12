@@ -27,7 +27,7 @@ public class RedisClientTest {
     menu.setGuid(GuidGenerator.newGuid());
     menu.setIconClass("menu");
     menu.setMenuIndex(1);
-    menu.setMenuName("测试菜单");
+    menu.setMenuName("测试菜单1");
     menu.setMenuType(0);
     menu.setResource("aaa/aaa");
     redisClient.putObjectWithExpire("menu", menu, 100);

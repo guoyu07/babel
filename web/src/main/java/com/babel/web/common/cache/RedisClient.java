@@ -13,7 +13,7 @@ public class RedisClient {
   @Autowired
   private RedisExecuteTemplate redisExecuteTemplate;
 
-  public boolean putObjectWithExpire(String key, Object obj, long expireTime) {
+  boolean putObjectWithExpire(String key, Object obj, long expireTime) {
     String result = (String)redisExecuteTemplate.execute(new RedisExecuteTemplate.ExecuteCallback() {
       byte[] objSeria = SerializationUtil.serializer(obj);
       @Override
@@ -24,7 +24,7 @@ public class RedisClient {
     return "OK".equals(result);
   }
 
-  public Object getObjectByKey(String key, Class<?> clazz) {
+  Object getObjectByKey(String key, Class<?> clazz) {
     return redisExecuteTemplate.execute(new RedisExecuteTemplate.ExecuteCallback() {
       @Override
       public Object command(ShardedJedis shardedJedis) {
