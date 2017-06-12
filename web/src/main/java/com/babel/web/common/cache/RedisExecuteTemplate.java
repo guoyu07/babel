@@ -15,12 +15,8 @@ public class RedisExecuteTemplate {
 
   private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-  private final ShardedJedisPool shardedJedisPool;
-
   @Autowired
-  public RedisExecuteTemplate(ShardedJedisPool shardedJedisPool) {
-    this.shardedJedisPool = shardedJedisPool;
-  }
+  private ShardedJedisPool shardedJedisPool;
 
   private ShardedJedis getRedisClient(){
     try {
