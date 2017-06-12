@@ -7,6 +7,10 @@ import com.dyuproject.protostuff.runtime.RuntimeSchema;
 import org.springframework.objenesis.Objenesis;
 import org.springframework.objenesis.ObjenesisStd;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -66,6 +70,53 @@ public class SerializationUtil {
     } catch (Exception e) {
       throw new IllegalStateException(e.getMessage(), e);
     }
+  }
+
+  //序列化列表
+  public static <T> byte[] serializeList(List<T> objList) {
+    if (objList == null || objList.isEmpty()) {
+      throw new RuntimeException("序列化对象列表(" + objList + ")参数异常!");
+    }
+    @SuppressWarnings("unchecked")
+    Schema<T> schema = (Schema<T>) RuntimeSchema.getSchema(objList.get(0).getClass());
+    LinkedBuffer buffer = LinkedBuffer.allocate(LinkedBuffer.DEFAULT_BUFFER_SIZE);
+    byte[] protostuff = null;
+    ByteArrayOutputStream bos = null;
+    try {
+      bos = new ByteArrayOutputStream();
+      ProtostuffIOUtil.writeListTo(bos, objList, schema, buffer);
+      protostuff = bos.toByteArray();
+    } catch (Exception e) {
+      throw new RuntimeException("序列化对象列表(" + objList + ")发生异常!", e);
+    } finally {
+      buffer.clear();
+      try {
+        if(bos!=null){
+          bos.close();
+        }
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    }
+
+    return protostuff;
+  }
+
+  //反序列化列表
+  public static <T> List<T> deserializeList(byte[] paramArrayOfByte, Class<T> targetClass) {
+    if (paramArrayOfByte == null || paramArrayOfByte.length == 0) {
+      throw new RuntimeException("反序列化对象发生异常,byte序列为空!");
+    }
+
+    Schema<T> schema = RuntimeSchema.getSchema(targetClass);
+    List<T> result;
+    try {
+      //核心代码
+      result = ProtostuffIOUtil.parseListFrom(new ByteArrayInputStream(paramArrayOfByte), schema);
+    } catch (IOException e) {
+      throw new RuntimeException("反序列化对象列表发生异常!",e);
+    }
+    return result;
   }
 
 }
