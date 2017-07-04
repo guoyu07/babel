@@ -17,28 +17,28 @@
 
 </head>
 <body class="nav-md footer_fixed">
-    <div class="container body">
-        <div class="main_container">
-            <div th:replace="base/menu :: menu(menuList=${T(com.babel.web.system.controller.MenuController).getMenus()})"></div>
-            <div th:replace="base/header :: header"></div>
-            <div layout:fragment="content"></div>
-            <div th:replace="base/footer::footer"></div>
-        </div>
+<div class="container body">
+    <div class="main_container">
+        <div th:replace="base/menu :: menu(menuList=${T(com.babel.web.system.controller.MenuController).getMenus()})"></div>
+        <div th:replace="base/header :: header"></div>
+        <div layout:fragment="content"></div>
+        <div th:replace="base/footer::footer"></div>
     </div>
+</div>
 
-    <!--jQuery-->
-    <script src="/resources/plugins/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="/resources/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="/resources/plugins/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-    <!-- Custom Theme Scripts -->
-    <script src="/resources/js/custom.js"></script>
-    <!-- Messenger-->
-    <script src="/resources/plugins/messenger/js/messenger.min.js"></script>
-    <script src="/resources/js/messenger-common.js"></script>
-    <script src="/resources/js/menu.js"></script>
+<!--jQuery-->
+<script src="/resources/plugins/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="/resources/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- bootstrap-progressbar -->
+<script src="/resources/plugins/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- Custom Theme Scripts -->
+<script src="/resources/js/custom.js"></script>
+<!-- Messenger-->
+<script src="/resources/plugins/messenger/js/messenger.min.js"></script>
+<script src="/resources/js/messenger-common.js"></script>
+<script src="/resources/js/menu.js"></script>
 
-    <section layout:fragment="script"></section>
+<section layout:fragment="script"></section>
 </body>
 </html>
