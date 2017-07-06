@@ -39,7 +39,7 @@
                         <input type="password" class="form-control" placeholder="Password" id="loginPwd" name="loginPwd" required="" />
                     </div>
                     <div>
-                        <button id="login" class="btn btn-default submit" href="/account/login">Log in</button>
+                        <button id="loginBtn" name="loginBtn" class="btn btn-default submit" onclick="account.login()">Log in</button>
                         <a class="reset_pass" href="#">Lost your password?</a>
                     </div>
 
@@ -76,7 +76,7 @@
                         <input type="password" class="form-control" placeholder="Password" id="regPwd" name="regPwd" required="" />
                     </div>
                     <div>
-                        <a class="btn btn-default submit" href="index.html">Submit</a>
+                        <button id="regBtn" name="regBtn" class="btn btn-default submit" onclick="account.register()">Submit</button>
                     </div>
 
                     <div class="clearfix"></div>
@@ -100,9 +100,6 @@
     </div>
 </div>
 </body>
+<script src="/resources/plugins/jquery/dist/jquery.min.js"></script>
 <script src="/resources/js/account.js"></script>
-<script type="text/javascript">
-    $("#button_login").on("click",account.login());
-    $("#button_register").on("click",account.register());
-</script>
 </html>

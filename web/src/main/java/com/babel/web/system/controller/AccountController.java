@@ -37,7 +37,7 @@ public class AccountController {
     return "account/login";
   }
 
-  @RequestMapping(value="/login" ,method = GET)
+  @RequestMapping(value="/login" ,method = POST)
   @Description("登录")
   public String login(String userName, String password){
 
