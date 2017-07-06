@@ -30,16 +30,16 @@
     <div class="login_wrapper">
         <div class="animate form login_form">
             <section class="login_content">
-                <form>
+                <form action="/account/login" method="post">
                     <h1>欢迎使用数据分析引擎</h1>
                     <div>
-                        <input type="text" class="form-control" placeholder="Username" id="loginUserName" name="loginUserName" required="" />
+                        <input type="text" class="form-control" placeholder="Username" id="userName" name="userName" required="" />
                     </div>
                     <div>
-                        <input type="password" class="form-control" placeholder="Password" id="loginPwd" name="loginPwd" required="" />
+                        <input type="password" class="form-control" placeholder="Password" id="password" name="password" required="" />
                     </div>
                     <div>
-                        <button id="loginBtn" name="loginBtn" class="btn btn-default submit" onclick="account.login()">Log in</button>
+                        <input type="submit" class="btn btn-default submit" value="Log in" />
                         <a class="reset_pass" href="#">Lost your password?</a>
                     </div>
 
@@ -64,7 +64,7 @@
 
         <div id="register" class="animate form registration_form">
             <section class="login_content">
-                <form action="">
+                <form action="/account/register" method="post">
                     <h1>Create Account</h1>
                     <div>
                         <input type="text" class="form-control" placeholder="Username" id="regName" name="regName" required="" />
@@ -76,7 +76,7 @@
                         <input type="password" class="form-control" placeholder="Password" id="regPwd" name="regPwd" required="" />
                     </div>
                     <div>
-                        <button id="regBtn" name="regBtn" class="btn btn-default submit" onclick="account.register()">Submit</button>
+                        <input type="submit"  class="btn btn-default submit">Submit</input>
                     </div>
 
                     <div class="clearfix"></div>
@@ -100,6 +100,16 @@
     </div>
 </div>
 </body>
-<script src="/resources/plugins/jquery/dist/jquery.min.js"></script>
-<script src="/resources/js/account.js"></script>
 </html>
+<!--<script src="/resources/plugins/jquery/dist/jquery.min.js"></script>-->
+<!--<script src="/resources/js/account.js"></script>-->
+<!--<script type="text/javascript">-->
+
+        <!--$("#loginBtn").click(function () {-->
+            <!--account.login();-->
+        <!--});-->
+        <!--$("#regBtn").click(function () {-->
+            <!--account.register();-->
+        <!--});-->
+
+<!--</script>-->

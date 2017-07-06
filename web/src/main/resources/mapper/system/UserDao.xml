@@ -33,8 +33,13 @@
         DELETE * FROM users WHERE guid = #{guid}
     </delete>
 
-    <select id="query">
-        SELECT * FROM  users WHERE userName = #{userName}
+    <select id="query" resultType="com.babel.web.system.entity.User">
+        SELECT
+          m.username,
+          m.password,
+          m.email
+        FROM  users m
+        WHERE userName = #{userName}
     </select>
 
 </mapper>
