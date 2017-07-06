@@ -25,4 +25,9 @@ public interface MenuService {
    */
   List<Menu> getMainMenus();
 
+  /**
+   * 查询用户的菜单项
+   */
+  List<Menu> getUserMenus(String userName);
+
 }

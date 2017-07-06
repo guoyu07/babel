@@ -43,6 +43,4 @@ public class GlobalExceptionHandler{
     ServletOutputStream os = response.getOutputStream();
     os.write(json.getBytes("utf-8"));
   }
-
-
 }

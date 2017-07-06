@@ -37,4 +37,10 @@ public interface MenuDao {
    * @return 返回一级菜单列表
    */
   List<Menu> queryMainMenus();
+
+  /**
+   * 查询用户可见菜单项
+   * @return
+   */
+  List<Menu> queryUserMenus(String userName);
 }

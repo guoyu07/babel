@@ -84,4 +84,19 @@
             m.parent_guid = ""
     </select>
 
+    <select id="queryUserMenus" resultType="com.babel.web.system.entity.Menu">
+        SELECT
+            m.guid,
+            m.menu_name,
+            m.menu_index,
+            m.icon_class,
+            m.menu_type
+        FROM
+            menu m
+        WHERE
+            m.parent_guid IS NULL
+        OR
+            m.parent_guid = ""
+    </select>
+
 </mapper>

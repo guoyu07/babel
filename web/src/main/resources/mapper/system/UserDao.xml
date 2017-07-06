@@ -6,7 +6,7 @@
     <!--目的：为dao接口方法提供sql语句配置-->
 
     <insert id="add"  parameterType="com.babel.web.system.entity.User">
-        INSERT INTO user (guid,
+        INSERT INTO users (guid,
         username,
         password,
         enabled,
@@ -19,7 +19,7 @@
     </insert>
 
     <update id="update">
-        UPDATE user
+        UPDATE users
         SET username = #{userName},
             password = #{password},
             enabled = #{enabled},
@@ -30,9 +30,11 @@
     </update>
 
     <delete id="delete">
-        DELETE * FROM user WHERE guid = #{guid}
+        DELETE * FROM users WHERE guid = #{guid}
     </delete>
 
-
+    <select id="query">
+        SELECT * FROM  users WHERE userName = #{userName}
+    </select>
 
 </mapper>

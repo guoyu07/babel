@@ -13,5 +13,7 @@ public interface UserService {
 
   void delete(User user);
 
-  void query(String userName);
+  User query(String userName);
+
+  void login(String userName, String password);
 }

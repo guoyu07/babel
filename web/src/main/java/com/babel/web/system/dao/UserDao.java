@@ -30,8 +30,8 @@ public interface UserDao {
 
   /**
    * 查询用户
-   * @param guid
+   * @param userName
    * @return
    */
-  User query(String guid);
+  User query(String userName);
 }

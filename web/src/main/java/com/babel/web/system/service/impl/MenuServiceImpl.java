@@ -18,40 +18,45 @@ import java.util.List;
  * Created by allen on 2017/5/22.
  */
 @Service
-public class MenuServiceImpl implements MenuService{
+public class MenuServiceImpl implements MenuService {
 
-  private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-  private final MenuDao menuDao;
+    private final MenuDao menuDao;
 
-  @Autowired
-  public MenuServiceImpl(MenuDao menuDao) {
-    this.menuDao = menuDao;
-  }
-
-  @Autowired
-  RedisClient redisClient;
-
-
-  public void addMenu(Menu menu) {
-
-    redisClient.removeObjectByKey(RedisKeys.MENU.getKey());
-    menu.setGuid(GuidGenerator.newGuid());
-    menuDao.add(menu);
-  }
-
-  public List<Menu> getMenuList() {
-    List<Menu> menus = (ArrayList<Menu>)redisClient.getListByKey(RedisKeys.MENU.getKey(),Menu.class);
-    if(menus != null){
-      return menus;
+    @Autowired
+    public MenuServiceImpl(MenuDao menuDao) {
+        this.menuDao = menuDao;
     }
-    menus = menuDao.queryAll();
-    redisClient.putListWithExpire(RedisKeys.MENU.getKey(),menus,1000*3000);
-    return menus;
-  }
 
-  public List<Menu> getMainMenus() {
-    List<Menu> menus = menuDao.queryMainMenus();
-    return menus;
-  }
+    @Autowired
+    RedisClient redisClient;
+
+
+    public void addMenu(Menu menu) {
+
+        redisClient.removeObjectByKey(RedisKeys.MENU.getKey());
+        menu.setGuid(GuidGenerator.newGuid());
+        menuDao.add(menu);
+    }
+
+    public List<Menu> getMenuList() {
+        List<Menu> menus = (ArrayList<Menu>) redisClient.getListByKey(RedisKeys.MENU.getKey(), Menu.class);
+        if (menus != null) {
+            return menus;
+        }
+        menus = menuDao.queryAll();
+        redisClient.putListWithExpire(RedisKeys.MENU.getKey(), menus, 1000 * 3000);
+        return menus;
+    }
+
+    public List<Menu> getMainMenus() {
+        List<Menu> menus = menuDao.queryMainMenus();
+        return menus;
+    }
+
+    public List<Menu> getUserMenus(String userName) {
+        List<Menu> menus = menuDao.queryUserMenus(userName);
+        return menus;
+    }
 }
