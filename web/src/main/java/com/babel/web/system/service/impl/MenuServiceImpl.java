@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -42,6 +44,7 @@ public class MenuServiceImpl implements MenuService {
 
     public List<Menu> getMenuList() {
         List<Menu> menus = (ArrayList<Menu>) redisClient.getListByKey(RedisKeys.MENU.getKey(), Menu.class);
+        Collections.sort(menus);
         if (menus != null) {
             return menus;
         }
@@ -52,6 +55,7 @@ public class MenuServiceImpl implements MenuService {
 
     public List<Menu> getMainMenus() {
         List<Menu> menus = menuDao.queryMainMenus();
+
         return menus;
     }
 

@@ -3,7 +3,7 @@ package com.babel.web.system.entity;
 /**
  * Created by allen on 2017/5/22.
  */
-public class Menu{
+public class Menu implements Comparable{
   private String guid;
   private String menuName;
   private String resourceGuid;//关联resourceGuid
@@ -77,4 +77,8 @@ public class Menu{
     this.resourceGuid = resourceGuid;
   }
 
+  @Override
+  public int compareTo(Object o) {
+    return this.getMenuIndex() - ((Menu)o).getMenuIndex();
+  }
 }
