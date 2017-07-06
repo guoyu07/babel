@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -55,12 +54,13 @@ public class MenuServiceImpl implements MenuService {
 
     public List<Menu> getMainMenus() {
         List<Menu> menus = menuDao.queryMainMenus();
-
+        Collections.sort(menus);
         return menus;
     }
 
     public List<Menu> getUserMenus(String userName) {
         List<Menu> menus = menuDao.queryUserMenus(userName);
+        Collections.sort(menus);
         return menus;
     }
 }
