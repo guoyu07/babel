@@ -46,6 +46,7 @@
           <element id="archive" name="platform-1.0-SNAPSHOT.jar">
             <element id="module-output" name="platform" />
           </element>
+          <element id="library" level="project" name="Maven: io.jsonwebtoken:jjwt:0.7.0" />
           <element id="library" level="project" name="Maven: org.springframework.data:spring-data-redis:1.8.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.data:spring-data-keyvalue:1.2.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.data:spring-data-commons:1.13.4.RELEASE" />
