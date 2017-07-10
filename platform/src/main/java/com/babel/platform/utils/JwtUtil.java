@@ -1,56 +1,64 @@
 package com.babel.platform.utils;
 
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.JwtBuilder;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import java.util.HashMap;
+import java.util.Map;
 
-import javax.crypto.spec.SecretKeySpec;
-import javax.xml.bind.DatatypeConverter;
-import java.security.Key;
-import java.util.Date;
+import com.auth0.jwt.JWTSigner;
+import com.auth0.jwt.JWTVerifier;
+import com.auth0.jwt.internal.com.fasterxml.jackson.databind.ObjectMapper;
 
-/**
- * Created by lenovo on 2017/7/7.
- */
 public class JwtUtil {
 
-    public static Claims parseJWT(String jsonWebToken,String base64Security){
-        try{
-            Claims claims = Jwts.parser()
-                    .setSigningKey(base64Security)
-                    .parseClaimsJws(jsonWebToken).getBody();
-            return claims;
-        }
-        catch (Exception ex){
+    private static final String SECRET = "XX#$%()(#*!()!KL<><MQLMNQNQJQK sdfkjsdrow32234545fdf>?N<:{LWPW";
+
+    private static final String EXP = "exp";
+
+    private static final String PAYLOAD = "payload";
+
+    /**
+     * get jwt String of object
+     * @param object
+     *            the POJO object
+     * @param maxAge
+     *            the milliseconds of life time
+     * @return the jwt token
+     */
+    public static <T> String sign(T object, long maxAge) {
+        try {
+            final JWTSigner signer = new JWTSigner(SECRET);
+            final Map<String, Object> claims = new HashMap<String, Object>();
+            ObjectMapper mapper = new ObjectMapper();
+            String jsonString = mapper.writeValueAsString(object);
+            claims.put(PAYLOAD, jsonString);
+            claims.put(EXP, System.currentTimeMillis() + maxAge);
+            return signer.sign(claims);
+        } catch(Exception e) {
             return null;
         }
-
     }
 
-    public static String createJWT(String userName, String userId, String ip, long TTLMillis, String base64Security){
-        SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
-        long nowMillis = System.currentTimeMillis();
-        Date now = new Date(nowMillis);
 
-        //生成签名密钥
-        byte[] apiKeySecretBytes = DatatypeConverter.parseBase64Binary(base64Security);
-        Key key = new SecretKeySpec(apiKeySecretBytes, signatureAlgorithm.getJcaName());
-
-        //添加构成JWT的参数
-        JwtBuilder builder = Jwts.builder().setHeaderParam("typ", "JWT")
-                .claim("userName",userName)
-                .claim("userId", userId)
-                .claim("ip", ip)
-                .signWith(signatureAlgorithm, key);
-        //添加token过期时间
-        if(TTLMillis >= 0){
-            long expMillis = nowMillis + TTLMillis;
-            Date exp = new Date(expMillis);
-            builder.setExpiration(exp).setNotBefore(now);
+    /**
+     * get the object of jwt if not expired
+     * @param jwt
+     * @return POJO object
+     */
+    public static<T> T unsign(String jwt, Class<T> classT) {
+        final JWTVerifier verifier = new JWTVerifier(SECRET);
+        try {
+            final Map<String,Object> claims= verifier.verify(jwt);
+            if (claims.containsKey(EXP) && claims.containsKey(PAYLOAD)) {
+                long exp = (Long)claims.get(EXP);
+                long currentTimeMillis = System.currentTimeMillis();
+                if (exp > currentTimeMillis) {
+                    String json = (String)claims.get(PAYLOAD);
+                    ObjectMapper objectMapper = new ObjectMapper();
+                    return objectMapper.readValue(json, classT);
+                }
+            }
+            return null;
+        } catch (Exception e) {
+            return null;
         }
-
-        //生存JWT
-        return builder.compact();
     }
 }

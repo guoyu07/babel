@@ -15,5 +15,5 @@ public interface UserService {
 
   User query(String userName);
 
-  void login(String userName, String password);
+  User login(String userName, String password);
 }

@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserService {
     return userDao.query(userName);
   }
 
-  public void login(String userName, String password){
+  public User login(String userName, String password){
       User user = userDao.query(userName);
       if(null == user){
           throw new UserNotFoundException("对不起，用户" + userName + "未注册");
@@ -56,5 +56,6 @@ public class UserServiceImpl implements UserService {
       }else{
           throw new PermissionException("对不起，密码不正确！");
       }
+      return user;
   }
 }

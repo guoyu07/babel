@@ -8,8 +8,8 @@ var account = {
         }
     },
     login:function () {
-        var userName = $("#loginUserName").val();
-        var password = $("#loginPwd").val();
+        var userName = $("#userName").val();
+        var password = $("#password").val();
 
         var loginParam = {
             userName: userName,
@@ -17,7 +17,12 @@ var account = {
         };//拼装成json格式
         var postUrl = account.URL.login();
 
-        $.post(postUrl, loginParam);
+        $.post(postUrl, loginParam).success(function (resopnseData) {
+            if(resopnseData["message"]=="Ok"){
+                localStorage.setItem("token",resopnseData.data["token"]);
+                window.location.href="/account/main";
+            }
+        });
     },
     register:function () {
         var userName = $("#regName").val();
