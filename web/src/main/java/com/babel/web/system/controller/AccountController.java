@@ -46,7 +46,13 @@ public class AccountController {
 
     @RequestMapping(value = "/logout", method = GET)
     @Description("注销")
-    public String logout() {
+    public String logout(HttpServletRequest request, HttpServletResponse response) {
+        for (Cookie tmpCookie:request.getCookies()) {
+            tmpCookie.setMaxAge(0);
+            tmpCookie.setValue(null);
+            tmpCookie.setPath("/");
+            response.addCookie(tmpCookie);
+        }
         return "account/login";
     }
 
@@ -55,17 +61,14 @@ public class AccountController {
     public String login(String userName, String password, HttpServletResponse response) {
         User user = userService.login(userName, password);
         String token = JwtUtil.sign(user, 30L * 24L * 3600L * 1000L);
-        User unsignUser = (User)JwtUtil.unsign(token,User.class);
-        logger.debug(JsonUtil.objToString(unsignUser));
-
         Cookie userNameCookie = new Cookie("userName", user.getUserName());
         userNameCookie.setMaxAge(60 * 60);
         userNameCookie.setHttpOnly(true);
+        userNameCookie.setPath("/");
         Cookie tokenCookie = new Cookie("token", token);
         tokenCookie.setMaxAge(60);
         tokenCookie.setHttpOnly(true);
         tokenCookie.setPath("/");
-        tokenCookie.setDomain("localhost");
         response.addCookie(tokenCookie);
         response.addCookie(userNameCookie);
         return "/account/main";

@@ -34,9 +34,9 @@ public class UserInterceptor extends HandlerInterceptorAdapter {
         String requestUri = request.getRequestURI();
         String method = request.getMethod();
         String url = request.getContextPath();
-        logger.debug("RequestUri:"+requestUri);
-        logger.debug("method:"+method);
-        logger.debug("url:"+url);
+        logger.warn("RequestUri:"+requestUri);
+        logger.warn("method:"+method);
+        logger.warn("url:"+url);
         if(request.getServletPath().toLowerCase().contains("login")){
             return true;
         }
@@ -45,7 +45,7 @@ public class UserInterceptor extends HandlerInterceptorAdapter {
             response.sendRedirect("/login");
             return false;
         }
-        User user = (User)JwtUtil.unsign(jwtToken,User.class);
+        User user = JwtUtil.unsign(jwtToken,User.class);
         if(null == user){
             response.sendRedirect("/login");
             return false;
