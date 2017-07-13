@@ -65,6 +65,7 @@ public class AccountController {
         tokenCookie.setMaxAge(60);
         tokenCookie.setHttpOnly(true);
         tokenCookie.setPath("/");
+        tokenCookie.setDomain("localhost");
         response.addCookie(tokenCookie);
         response.addCookie(userNameCookie);
         return "/account/main";
