@@ -16,6 +16,16 @@
       <param-value>classpath:spring/spring-*.xml</param-value>
     </init-param>
   </servlet>
+  <!-- 不拦截静态文件 -->
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>/resources/js/*</url-pattern>
+    <url-pattern>/resources/css/*</url-pattern>
+    <url-pattern>/resources/images/*</url-pattern>
+    <url-pattern>/resources/fonts/*</url-pattern>
+    <url-pattern>/resources/plugins/*</url-pattern>
+  </servlet-mapping>
+
   <servlet-mapping>
     <servlet-name>babel-dispatcher</servlet-name>
     <!-- 默认匹配所有的请求 -->

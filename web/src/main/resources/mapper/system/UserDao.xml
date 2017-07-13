@@ -35,9 +35,11 @@
 
     <select id="query" resultType="com.babel.web.system.entity.User">
         SELECT
+          m.guid,
           m.username,
           m.password,
-          m.email
+          m.email,
+          m.enabled
         FROM  users m
         WHERE userName = #{userName}
     </select>

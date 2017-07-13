@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class StockIndexController {
 
-  @RequestMapping(value="/")
+  @RequestMapping(value="/stock")
   @Description("股票指数")
   @ResourceType(ResourceTypeEnum.MENU)
   public String menuManage(){
