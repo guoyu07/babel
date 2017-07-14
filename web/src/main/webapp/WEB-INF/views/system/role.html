@@ -4,6 +4,9 @@
 
 <head>
     <title>角色管理</title>
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css">
 
 </head>
 <body>
@@ -55,11 +58,21 @@
             <div class="clearfix"></div>
         </div>
     </div>
-
     <!-- /page content -->
 </div>
 
 </body>
 <div layout:fragment="script">
+    <!-- DataTables -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/responsive/2.1.1/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/responsive/2.1.1/js/responsive.bootstrap.min.js"></script>
 </div>
 </html>
+<script type="text/javascript">
+    $(document).ready( function () {
+        $('#datatable-checkbox').DataTable();
+    } );
+</script>
+
