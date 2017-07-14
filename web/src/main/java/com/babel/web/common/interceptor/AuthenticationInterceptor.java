@@ -3,23 +3,27 @@ package com.babel.web.common.interceptor;
 import com.babel.platform.utils.CookieUtil;
 import com.babel.platform.utils.JwtUtil;
 import com.babel.web.system.entity.User;
+import com.babel.web.system.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 
 /**
  * Created by lenovo on 2017/7/11.
  */
-public class UserInterceptor extends HandlerInterceptorAdapter {
+public class AuthenticationInterceptor extends HandlerInterceptorAdapter {
 
-    private static final Logger logger = LoggerFactory.getLogger(UserInterceptor.class);
+    private static final Logger logger = LoggerFactory.getLogger(AuthenticationInterceptor.class);
 
+
+    @Autowired
+    UserService userService;
     /**
      * 在请求之前拦截，返回true则进入请求controller
      */
@@ -38,6 +42,7 @@ public class UserInterceptor extends HandlerInterceptorAdapter {
             response.sendRedirect("/login");
             return false;
         }
+
         return true;
     }
 
@@ -47,10 +52,6 @@ public class UserInterceptor extends HandlerInterceptorAdapter {
      */
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        logger.info("==============执行顺序: 2、postHandle================");
-        if (null!=modelAndView){
-//            modelAndView.addObject("serverTime", DateUtils.getDate(DateUtils.YYYY_MM_DD_HH_mm_ss));
-        }
     }
 
     /**
@@ -59,6 +60,5 @@ public class UserInterceptor extends HandlerInterceptorAdapter {
      */
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        logger.info("==============执行顺序: 3、afterCompletion================");
     }
 }

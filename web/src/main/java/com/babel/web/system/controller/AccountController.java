@@ -1,12 +1,9 @@
 package com.babel.web.system.controller;
 
-import com.babel.platform.utils.CookieUtil;
 import com.babel.platform.utils.GuidGenerator;
-import com.babel.platform.utils.JsonUtil;
 import com.babel.platform.utils.JwtUtil;
 import com.babel.web.common.annotation.ResourceType;
 import com.babel.web.common.enums.ResourceTypeEnum;
-import com.babel.web.common.interceptor.UserInterceptor;
 import com.babel.web.system.entity.User;
 import com.babel.web.system.service.MenuService;
 import com.babel.web.system.service.UserService;
