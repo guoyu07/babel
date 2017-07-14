@@ -4,7 +4,7 @@
 
 <head>
     <title>角色管理</title>
-    <link rel="stylesheet" href="/resources/plugins/zTree/zTreeStyle.css"/>
+
 </head>
 <body>
 <div layout:fragment="content" >
@@ -13,14 +13,49 @@
 
 
         <div class="">
-            <div class="page-title">
-                <div class="title_left">
-                    <h3>角色管理</h3>
+            <div class="clearfix"></div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>角色列表</small></h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a><i class="fa fa-plus"></i></a>
+                            </li>
+                            <li><a><i class="fa fa-edit"></i></a>
+                            </li>
+                            <li><a><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <table id="datatable-checkbox" class="table table-striped table-bordered bulk_action">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>角色</th>
+                                <th>描述</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" id="check-all" class="flat">
+                                </td>
+                                <td>系统管理员</td>
+                                <td>具有所有权限</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
+
             <div class="clearfix"></div>
         </div>
     </div>
+
     <!-- /page content -->
 </div>
 
