@@ -62,11 +62,11 @@ public class AccountController {
         User user = userService.login(userName, password);
         String token = JwtUtil.sign(user, 30L * 24L * 3600L * 1000L);
         Cookie userNameCookie = new Cookie("userName", user.getUserName());
-        userNameCookie.setMaxAge(60 * 60);
+        userNameCookie.setMaxAge(20*60);
         userNameCookie.setHttpOnly(true);
         userNameCookie.setPath("/");
         Cookie tokenCookie = new Cookie("token", token);
-        tokenCookie.setMaxAge(60);
+        tokenCookie.setMaxAge(20*60);
         tokenCookie.setHttpOnly(true);
         tokenCookie.setPath("/");
         response.addCookie(tokenCookie);

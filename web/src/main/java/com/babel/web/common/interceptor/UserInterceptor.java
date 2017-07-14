@@ -22,21 +22,9 @@ public class UserInterceptor extends HandlerInterceptorAdapter {
 
     /**
      * 在请求之前拦截，返回true则进入请求controller
-     * @param request
-     * @param response
-     * @param handler
-     * @return
-     * @throws Exception
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        logger.info("==============执行顺序: 1、preHandle================");
-        String requestUri = request.getRequestURI();
-        String method = request.getMethod();
-        String url = request.getContextPath();
-        logger.warn("RequestUri:"+requestUri);
-        logger.warn("method:"+method);
-        logger.warn("url:"+url);
         if(request.getServletPath().toLowerCase().contains("login")){
             return true;
         }
@@ -56,11 +44,6 @@ public class UserInterceptor extends HandlerInterceptorAdapter {
     /**
      * 在业务处理器处理请求执行完成后，在返回视图前拦截
      * 可在modelAndView中加入数据，比如当前时间
-     * @param request
-     * @param response
-     * @param handler
-     * @param modelAndView
-     * @throws Exception
      */
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
@@ -73,11 +56,6 @@ public class UserInterceptor extends HandlerInterceptorAdapter {
     /**
      * 在DispatcherServlet完全处理请求后被调用，可用于清理资源等
      * 当有拦截器抛出异常时，会从当前拦截器往回执行所有的拦截器的afterCompletion()
-     * @param request
-     * @param response
-     * @param handler
-     * @param ex
-     * @throws Exception
      */
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
