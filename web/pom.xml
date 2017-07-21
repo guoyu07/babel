@@ -176,6 +176,20 @@
       <version>1.1.1</version>
     </dependency>
 
+    <!--pagehelper分页插件-->
+    <dependency>
+      <groupId>com.github.pagehelper</groupId>
+      <artifactId>pagehelper</artifactId>
+      <version>5.0.0</version>
+    </dependency>
+    <!--JSON工具类-->
+    <!-- https://mvnrepository.com/artifact/org.json/json -->
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20160810</version>
+    </dependency>
+
     <!--导入apache工具类-->
     <dependency>
       <groupId>commons-collections</groupId>
