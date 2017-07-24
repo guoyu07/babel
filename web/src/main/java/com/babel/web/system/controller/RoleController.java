@@ -43,16 +43,13 @@ public class RoleController {
   @Description("获取全部角色")
   @ResponseBody
   public String roles(@Param("aoData") String aoData) throws Exception {
-    logger.error("aoData:"+aoData);
     DataTableRequest dtRequest = new DataTableRequest(aoData);
-    logger.error("dataTableRequest:" + JsonUtil.objToString(dtRequest));
     PageHelper.startPage(dtRequest.getPageNumber(),dtRequest.getDisplayLength());
     List<Role> roles = roleService.getRoles();
     PageInfo<Role> pageRoles = new PageInfo<>(roles,dtRequest.getPageNumber());
     DataTablesView <Role> rolesDataTable = new DataTablesView<>();
     rolesDataTable.setData(roles);
     rolesDataTable.setRecordsTotal((int) pageRoles.getTotal());
-    String data = JsonUtil.objToString(rolesDataTable);
-    return data;
+    return JsonUtil.objToString(rolesDataTable);
   }
 }
