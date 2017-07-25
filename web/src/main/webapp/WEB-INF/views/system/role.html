@@ -57,20 +57,20 @@
                             <h4 class="modal-title" id="myModalLabel">添加角色</h4>
                         </div>
                         <div class="modal-body">
-                            <form>
+                            <form id="role-add-form">
                                 <div class="form-group">
-                                    <label for="role-name" class="control-label">名称:</label>
-                                    <input type="text" class="form-control" id="role-name">
+                                    <label for="roleName" class="control-label">名称:</label>
+                                    <input type="text" class="form-control" id="roleName" name="roleName">
                                 </div>
                                 <div class="form-group">
-                                    <label for="role-description" class="control-label">描述:</label>
-                                    <textarea class="form-control" id="role-description"></textarea>
+                                    <label for="roleDescription" class="control-label">描述:</label>
+                                    <textarea class="form-control" id="roleDescription" name="roleDescription"></textarea>
                                 </div>
                             </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Send message</button>
+                            <button id="roleAddBtn" name="roleAddBtn" type="button" class="btn btn-primary" data-dismiss="modal">增加</button>
                         </div>
                     </div>
                 </div>
@@ -91,8 +91,9 @@
 <script type="text/javascript" charset="utf8" src="/resources/plugins/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 </html>
 <script type="text/javascript">
+    var roleTable;
     $(function() {
-        $("#roleTable").dataTable({
+       roleTable = $("#roleTable").dataTable({
             "bLengthChange":false,
             "bProcessing": false, // 是否显示取数据时的那个等待提示
             "bServerSide": true,//这个用来指明是通过服务端来取数据
@@ -115,22 +116,46 @@
                 {data: "description"}
             ]
         });
+
+        // 3个参数的名字可以随便命名,但必须是3个参数,少一个都不行
+        function retrieveData( sSource,aoData, fnCallback) {
+            $.ajax({
+                url: sSource,//这个就是请求地址对应sAjaxSource
+                data: {"aoData": JSON.stringify(aoData)},//这个是把datatable的一些基本数据传给后台,比如起始位置,每页显示的行数
+                type: 'post',
+                dataType: 'json',
+                async: true,
+                success: function (result) {
+                    fnCallback(result);//把返回的数据传给这个方法就可以了,datatable会自动绑定数据的
+                },
+                error: function (msg) {
+                }
+            });
+        }
     });
 
-    // 3个参数的名字可以随便命名,但必须是3个参数,少一个都不行
-    function retrieveData( sSource,aoData, fnCallback) {
+    $("#roleAddBtn").on("click", function() {
         $.ajax({
-            url : sSource,//这个就是请求地址对应sAjaxSource
-            data : {"aoData":JSON.stringify(aoData)},//这个是把datatable的一些基本数据传给后台,比如起始位置,每页显示的行数
-            type : 'post',
-            dataType : 'json',
-            async : true,
-            success : function(result) {
-                fnCallback(result);//把返回的数据传给这个方法就可以了,datatable会自动绑定数据的
+            cache: false,
+            type: "POST",
+            url: "/role/add",
+            data: $("#role-add-form").serialize(),
+            async: false,
+            error: function(request) {
+                showFail("Server Connection Error...");
             },
-            error : function(msg) {
+            success: function(data) {
+                roleTable.fnDraw(false);
+//                roleTable.api().ajax.reload();
+                new PNotify({
+                    title: '角色添加成功',
+                    text: '角色添加成功',
+                    type: 'success',
+                    styling: 'bootstrap3'
+                });
             }
         });
-    }
+    });
+
 </script>
 
