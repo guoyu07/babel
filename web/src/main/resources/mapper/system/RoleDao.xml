@@ -25,19 +25,17 @@
         #{available})
     </insert>
 
-    <update id="update">
+    <update id="update">d
         UPDATE roles
         SET
-        role = #{role},
-        description = #{description},
-        available = #{available}
+        role = #{1},
+        description = #{2}
         WHERE
-        guid = #{guid}
-        AND number > 0
+        role = #{0}
     </update>
 
     <delete id="delete">
-        DELETE * FROM roles WHERE guid = #{guid}
+        DELETE FROM roles WHERE role = #{role}
     </delete>
 
 

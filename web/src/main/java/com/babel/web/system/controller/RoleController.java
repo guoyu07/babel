@@ -63,4 +63,20 @@ public class RoleController {
     roleService.add(new Role(roleName,roleDescription));
     return RestResultGenerator.genResult("添加角色成功！");
   }
+
+  @RequestMapping(value="/edit",method = RequestMethod.POST)
+  @Description("更新角色")
+  @ResponseBody
+  public ResponseResult edit(String oldRoleName, String roleEditName, String roleEditDescription){
+    roleService.update(oldRoleName,roleEditName,roleEditDescription);
+    return RestResultGenerator.genResult("更新角色成功！");
+  }
+
+  @RequestMapping(value="/delete",method = RequestMethod.POST)
+  @Description("删除角色")
+  @ResponseBody
+  public ResponseResult delete(String role){
+    roleService.delete(role);
+    return RestResultGenerator.genResult("删除角色成功！");
+  }
 }

@@ -34,6 +34,7 @@
                         <table id="roleTable" class="table table-striped table-bordered bulk_action">
                             <thead>
                             <tr>
+                                <th>guid</th>
                                 <th>role</th>
                                 <th>description</th>
                             </tr>
@@ -73,6 +74,38 @@
                 </div>
             </div>
 
+            <div id="roleEditModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                            </button>
+                            <h4 class="modal-title" id="roleEditLabel">编辑角色</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form id="role-edit-form">
+                                <div class="form-group">
+                                    <input type="hidden" class="form-control" id="oldRoleName" name="oldRoleName">
+                                </div>
+                                <div class="form-group">
+                                    <label for="roleName" class="control-label">名称:</label>
+                                    <input type="text" class="form-control" id="roleEditName" name="roleEditName">
+                                </div>
+                                <div class="form-group">
+                                    <label for="roleDescription" class="control-label">描述:</label>
+                                    <textarea class="form-control" id="roleEditDescription" name="roleEditDescription"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button id="roleEditBtn" name="roleEditBtn" type="button" class="btn btn-primary" data-dismiss="modal">保存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="clearfix"></div>
         </div>
     </div>
@@ -102,10 +135,11 @@
             "select":true,
             "fnServerData": retrieveData, // 获取数据的处理函数
             columns: [
+                {"visible":false},
                 {data: "role"},
                 {data: "description"}
             ]
-        });
+       });
 
         // 3个参数的名字可以随便命名,但必须是3个参数,少一个都不行
         function retrieveData( sSource,aoData, fnCallback) {
@@ -157,6 +191,31 @@
             }
         });
     });
+
+    $("#roleEditBtn").on("click", function() {
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: "/role/edit",
+            data: $("#role-edit-form").serialize(),
+            async: false,
+            error: function(request) {
+                showFail("Server Connection Error...");
+            },
+            success: function(data) {
+                roleTable.fnDraw(false);
+                new PNotify({
+                    title: '提示',
+                    text: '角色更新成功',
+                    type: 'success',
+                    nonblock: {
+                        nonblock: true
+                    },
+                    styling: 'bootstrap3'
+                });
+            }
+        });
+    });
     $("#roleEdit").on("click", function() {
         var row = roleTable.api().row('.selected');
         if (row.length != 1) {
@@ -169,11 +228,54 @@
                 },
                 styling: 'bootstrap3'
             });
+            return false;
         }
         var data = row.data();
-        $("input[name=roleName]").val(data.role);
-        $("textarea[name=roleDescription]").val(data.description);
-        $("#roleModal").modal('show');
+        $("input[name=oldRoleName]").val(data.role);
+        $("input[name=roleEditName]").val(data.role);
+        $("textarea[name=roleEditDescription]").val(data.description);
+        $("#roleEditModal").modal('show');
+
+    });
+
+    $("#roleDelete").on("click", function() {
+        var row = roleTable.api().row('.selected');
+        if (row.length != 1) {
+            new PNotify({
+                title: '提示',
+                text: '请先选择一条数据',
+                type: 'info',
+                nonblock: {
+                    nonblock: true
+                },
+                styling: 'bootstrap3'
+            });
+            return false;
+        }
+        var data = row.data();
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: "/role/delete",
+            data: {role:data.role},
+            async: false,
+            error: function(request) {
+                showFail("Server Connection Error...");
+            },
+            success: function(data) {
+                roleTable.fnDraw(false);
+                new PNotify({
+                    title: '提示',
+                    text: data.message,
+                    type: 'success',
+                    nonblock: {
+                        nonblock: true
+                    },
+                    styling: 'bootstrap3'
+                });
+            }
+        });
+
     });
 
 </script>
